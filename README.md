@@ -7,10 +7,12 @@ USER STORIES
 
 #3 As a user, I want to choose a concert so that I can find tickets to that show
 
-As a user, I want to adjust the radius of my search arera so that I can see shows farther away from me
+#4 As a user, I want to adjust the location of my search area so that I can see shows farther away from me
 
-As a user, I want to be able to see all shows of a specific artist so that I can view all upcoming dates/locations for their shows
+#5 As a user, I want to be able to see all shows of a specific artist so that I can view all upcoming dates/locations for their shows
 
-As a user, I want to see which of my friends follow an artist that I also follow so that I can see if they want to come to the concert with me
+#6 As a user, I want to create a list of favorites so that I can prioritize which shows I'm most interested in attending
 
-As a user, I want to create a list of favorites so that I can prioritize which shows I'm most interested in attending
+#7 As a user, I want to see which of my friends follow an artist that I also follow so that I can see if they want to come to the concert with me
+
+
