@@ -31,3 +31,7 @@
     color: black;
     text-align: center;
 }
+
+.selectedArtist {
+    background: rgb(112, 166, 248);
+}
