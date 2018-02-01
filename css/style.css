@@ -16,7 +16,8 @@
     overflow: scroll;
 }
 #login{
-    text-align: left;
+    float: left;
+    font-size: 15px;
 }
 #foot{
     text-align: center;
@@ -24,4 +25,9 @@
   bottom: 0;
   background-color: rgb(84, 83, 83);
   color: whitesmoke;
+}
+#concertList{
+    height: auto;
+    color: black;
+    text-align: center;
 }
