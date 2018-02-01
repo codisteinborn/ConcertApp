@@ -23,11 +23,14 @@ $(".btn").on("click", function (event) {
                 url: response._embedded.events[0].url
             }
             allConcerts.push(concertInfo);
+            var newDiv = $("<div>");
             var renderConcerts = function () {
                 var j = allConcerts.length - 1;
-                    $("#list").append("<p>" + allConcerts[j].name + "</p>");
-                    $("#list").append("<p>" + allConcerts[j].date + "</p>");
-                    $("#list").append("<p>" + allConcerts[j].venue + "</p>");
+                newDiv.addClass("concertDiv");
+                    newDiv.append("<p>" + allConcerts[j].name + "</p>");
+                    newDiv.append("<p>" + allConcerts[j].date + "</p>");
+                    newDiv.append("<p>" + allConcerts[j].venue + "</p>");
+                    $("#list").append(newDiv);
                 };
             renderConcerts();
         });
