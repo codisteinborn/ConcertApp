@@ -23,7 +23,7 @@ if (last > 0){
 
             var followList = function (){
                 for (i = 0; i < response.artists.items.length; i++){
-                artistArray.push(response.artists.items[i].name);
+                followArray.push(response.artists.items[i].name);
                 }
             }
 
