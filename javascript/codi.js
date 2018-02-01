@@ -1,4 +1,4 @@
-var artist = "Taylor Swift";
+// var artist = "Taylor Swift";
 var artistArr = ["Taylor Swift", "Hamilton", "Disney", "Hairball", "Keith Urban", "Thomas Rhett"];
 var city = "";
 var queryURL = "";
@@ -29,11 +29,8 @@ $(".btn").on("click", function (event) {
                     $("#list").append("<p>" + allConcerts[j].date + "</p>");
                     $("#list").append("<p>" + allConcerts[j].venue + "</p>");
                 };
-            
             renderConcerts();
         });
     }
-    console.log(concertInfo);
-    console.log(allConcerts);
 });
 
