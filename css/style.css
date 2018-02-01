@@ -3,7 +3,11 @@
     font-size: 150px;
     height: 250px;
     text-align: center;
+<<<<<<< HEAD
     background: url("concert.jpg");
+=======
+    background: url("https://visionslightingandsound.com/wp-content/uploads/2016/10/The-Concert-Equipment-You-Actually-Need.jpg");
+>>>>>>> b19a98dad7ff503e451ec8bd46beec46cf2bd67c
     background-size: cover;
     position: relative;
     bottom: 0px;
@@ -30,4 +34,12 @@
     height: auto;
     color: black;
     text-align: center;
+}
+.concertDiv{
+    border-style: dotted;
+    border-color: darkslateblue;
+    border-width: 2px;
+}
+.concertDiv:nth-of-type(odd){
+    background-color: rgb(206, 206, 216);
 }
