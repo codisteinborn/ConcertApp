@@ -11,7 +11,7 @@
 <body>
     <div class="container-fluid">
         <div class="jumbotron">
-            <p id="login">Login</p>
+            <button id="login">Login</button>
             <h1>Rock on!</h1>
             <p>More text here...</p>
         </div>
@@ -24,24 +24,27 @@
             <div class="col-md-7 col-md-offset-1 col-sm-12 col-xs-12 concertBox">
                 <div class="row">
                     <div class="col-md-4 col-sm-6 col-xs-6">
-                        <div class="input-group">
-                            <input type="text" class="form-control" id="zipCode" placeholder="Zip Code">
+                        <form class="input-group">
+                            <input type="text" class="form-control" id="city" placeholder="City">
                             <span class="input-group-btn">
                                 <button class="btn btn-default" type="button">Search!</button>
                             </span>
-                        </div>
+                        </form>
                     </div>
                 </div>
-
+                <div class="row" id="concertList">
+                    <p id="list"></p>
+                </div>
             </div>
         </div>
 
     </div>
-    <div class="container-fluid">
-<p class="row col-md-12" id="foot"> C 2018</p>
-    </div>
+    <!-- <div class="container-fluid">
+        <p class="row col-md-12" id="foot"> C 2018</p>
+    </div> -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="javascript/main.js"></script>
+    <script type="text/javascript" src="javascript/codi.js"></script>
 </body>
 
 </html>
