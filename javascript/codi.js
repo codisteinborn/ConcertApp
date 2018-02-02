@@ -37,7 +37,7 @@ $(".btn").on("click", function (event) {
                     $("#list").append(newAnchor);
                     
                     newAnchor.click(function() {
-                        window.open(allConcerts[j].url, '-blank');
+                        window.open(allConcerts[j].url, '_blank');
                     });
                 };
             renderConcerts();
