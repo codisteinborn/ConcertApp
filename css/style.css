@@ -5,6 +5,7 @@
     text-align: center;
     background: url("concert.jpg");
     background-size: cover;
+    background-position-y: center;
     position: relative;
     bottom: 0px;
 }
