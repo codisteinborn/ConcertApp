@@ -2,14 +2,19 @@ var city = "";
 var queryURL = "";
 var concertInfo = {};
 var allConcerts = [];
+var time = moment().format();
+// console.log(time);
+var searchTime= time.substring(0,19) + "Z"
+// console.log(time2)
 var artistArr = ["Taylor Swift", "Kenny Chesney", "Kygo", "Hamilton"]
 
-$("#citybtn").on("click", function (event) {
+var cityClick = function (){
+// $("#citybtn").on("click", function (event) {
     $("#list").empty();
     allConcerts = [];
     for (var i = 0; i < artistArr.length; i++) {
         city = String($("#city").val());
-        queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&city=" + city + "&radius=30&apikey=f4oDs35w3TxVEHx3jnVKhKSCH7IW63g7";
+        queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&city=" + city + "&sort=date,asc&startDateTime=" + searchTime + "&radius=30&apikey=f4oDs35w3TxVEHx3jnVKhKSCH7IW63g7";
         $.ajax({
             url: queryURL,
             type: "GET",
@@ -33,7 +38,7 @@ $("#citybtn").on("click", function (event) {
         });
     };
     setTimeout(function () { renderConcerts(); }, 1500);
-});
+};
 
 var renderConcerts = function () {
     for (var j = 0; j < allConcerts.length; j++) {
@@ -51,3 +56,5 @@ var renderConcerts = function () {
         console.log(allConcerts[j].url)
     };
 };
+
+$("#citybtn").on("click", cityClick)
