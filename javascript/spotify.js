@@ -1,4 +1,5 @@
 var followArray = [];
+var artistArr = [];
 var tokenURL = "";
 
 $("#login").on("click", function(){
@@ -19,7 +20,6 @@ if (last > 0){
         'Authorization': 'Bearer ' + token
         },
         success: function(response) {
-            console.log(response);
 
             var followList = function (){
                 for (i = 0; i < response.artists.items.length; i++){
@@ -27,8 +27,29 @@ if (last > 0){
                 }
             }
 
+            var artistRender = function(){
+                for (i = 0; i < followArray.length; i++){
+                    console.log("artist", followArray[i]);
+                    var newDiv = $("<p>");
+                    newDiv.addClass("artistDiv");
+                    newDiv.attr("data-artist",followArray[i]);
+                    newDiv.text(followArray[i]);
+                    newDiv.on("click", function(){
+                        if (artistArr.indexOf($(this).attr("data-artist")) < 0){
+                            artistArr.push($(this).attr("data-artist"));
+                            $(this).addClass("selectedArtist");
+                        }
+                        else {
+                            artistArr.splice(artistArr.indexOf($(this).attr("data-artist")), 1);
+                            $(this).removeClass("selectedArtist");
+                        }
+                    });
+                    $("#artistList").append(newDiv);
+                }
+            }
+
             followList();
-            console.log("followArray", followArray);
+            artistRender();
         }
     });
 }
