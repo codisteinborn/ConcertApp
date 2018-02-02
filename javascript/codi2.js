@@ -25,26 +25,33 @@ $(".btn").on("click", function (event) {
             }
             allConcerts.push(concertInfo);
 
-            var newAnchor = $("<div>");
-            var renderConcerts = function () {
-                var j = allConcerts.length - 1;
-                //newAnchor.append("<link>");
-                newAnchor.addClass("concertDiv");
-                newAnchor.append("<p>" + allConcerts[j].name + "</p>");
-                newAnchor.append("<p>" + allConcerts[j].date + "</p>");
-                newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>");
-                newAnchor.append("<p>" + allConcerts[j].venue + "</p>");
-                // newAnchor.append("<link>")
-                newAnchor.attr("href", allConcerts[j].url);
-                //newAnchor.attr("target", "_blank");
-                $("#list").append(newAnchor);
-
-                newAnchor.click(function () {
-                    window.open(allConcerts[j].url, '_blank');
-                });
-            };
-            renderConcerts();
+            allConcerts.sort(function (a, b) {
+                var dateA = new Date(a.date);
+                var dateB = new Date(b.date);
+                return dateA - dateB;
+            });
         });
-    }
-});
+    };
+    console.log(allConcerts);
 
+    var newAnchor = $("<div>");
+    var renderConcerts = function () {
+        for (var j = 0; j < allConcerts.length; j++) {
+            //newAnchor.append("<link>");
+            newAnchor.addClass("concertDiv");
+            newAnchor.append("<p>" + allConcerts[j].name + "</p>");
+            newAnchor.append("<p>" + allConcerts[j].date + "</p>");
+            newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>");
+            newAnchor.append("<p>" + allConcerts[j].venue + "</p>");
+            // newAnchor.append("<link>")
+            newAnchor.attr("href", allConcerts[j].url);
+            //newAnchor.attr("target", "_blank");
+            $("#list").append(newAnchor);
+
+            newAnchor.click(function () {
+                window.open(allConcerts[j].url, '_blank');
+            });
+        };
+    };
+    renderConcerts();
+})
