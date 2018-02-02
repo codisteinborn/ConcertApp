@@ -32,7 +32,6 @@ $("#citybtn").on("click", function (event) {
             });
         });
     };
-    // renderConcerts(); 
     setTimeout(function () { renderConcerts(); }, 1500);
 });
 
@@ -44,11 +43,11 @@ var renderConcerts = function () {
         newAnchor.append("<p>" + allConcerts[j].date + "</p>");
         newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>");
         newAnchor.append("<p>" + allConcerts[j].venue + "</p>");
-        // newAnchor.attr("value", String(allConcerts[j].url));
-        // newAnchor.attr("target", "_blank");
+        newAnchor.attr("href", allConcerts[j].url);
         newAnchor.click(function () {
-            window.open(allConcerts[j].url);
+            window.open($(this).attr("href"),'_blank');
         });
         $("#list").append(newAnchor);
+        console.log(allConcerts[j].url)
     };
 };
