@@ -4,7 +4,7 @@ var concertInfo = {};
 var allConcerts = [];
 var artistArr = ["Taylor Swift", "Kenny Chesney", "Kygo", "Hamilton"]
 
-$(".btn").on("click", function (event) {
+$("#citybtn").on("click", function (event) {
     $("#list").empty();
     allConcerts = [];
     for (var i = 0; i < artistArr.length; i++) {
@@ -37,20 +37,18 @@ $(".btn").on("click", function (event) {
 });
 
 var renderConcerts = function () {
-        for (var j = 0; j < allConcerts.length; j++) {
-            //newAnchor.append("<link>");
-            var newAnchor = $("<div>");
-            newAnchor.addClass("concertDiv");
-            newAnchor.append("<p>" + allConcerts[j].name + "</p>");
-            newAnchor.append("<p>" + allConcerts[j].date + "</p>");
-            newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>");
-            newAnchor.append("<p>" + allConcerts[j].venue + "</p>");
-            // newAnchor.append("<link>")
-            newAnchor.attr("href", allConcerts[j].url);
-            //newAnchor.attr("target", "_blank");
-            newAnchor.click(function () {
-                window.open(allConcerts[j].url, '_blank');
-            });
-            $("#list").append(newAnchor);
-        };
+    for (var j = 0; j < allConcerts.length; j++) {
+        var newAnchor = $("<div>");
+        newAnchor.addClass("concertDiv");
+        newAnchor.append("<p>" + allConcerts[j].name + "</p>");
+        newAnchor.append("<p>" + allConcerts[j].date + "</p>");
+        newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>");
+        newAnchor.append("<p>" + allConcerts[j].venue + "</p>");
+        // newAnchor.attr("value", String(allConcerts[j].url));
+        // newAnchor.attr("target", "_blank");
+        newAnchor.click(function () {
+            window.open(allConcerts[j].url);
+        });
+        $("#list").append(newAnchor);
+    };
 };
