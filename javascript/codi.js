@@ -1,5 +1,3 @@
-// var artist = "Taylor Swift";
-var artistArr = ["Taylor Swift", "Hamilton", "Disney", "Hairball", "Keith Urban", "Thomas Rhett"];
 var city = "";
 var queryURL = "";
 var concertInfo = {};
