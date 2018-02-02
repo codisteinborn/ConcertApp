@@ -32,12 +32,14 @@ $(".btn").on("click", function (event) {
             });
         });
     };
-    console.log(allConcerts);
+    // renderConcerts(); 
+    setTimeout(function () { renderConcerts(); }, 1500);
+});
 
-    var newAnchor = $("<div>");
-    var renderConcerts = function () {
+var renderConcerts = function () {
         for (var j = 0; j < allConcerts.length; j++) {
             //newAnchor.append("<link>");
+            var newAnchor = $("<div>");
             newAnchor.addClass("concertDiv");
             newAnchor.append("<p>" + allConcerts[j].name + "</p>");
             newAnchor.append("<p>" + allConcerts[j].date + "</p>");
@@ -46,12 +48,9 @@ $(".btn").on("click", function (event) {
             // newAnchor.append("<link>")
             newAnchor.attr("href", allConcerts[j].url);
             //newAnchor.attr("target", "_blank");
-            $("#list").append(newAnchor);
-
             newAnchor.click(function () {
                 window.open(allConcerts[j].url, '_blank');
             });
+            $("#list").append(newAnchor);
         };
-    };
-    renderConcerts();
-})
+};
