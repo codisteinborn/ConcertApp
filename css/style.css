@@ -35,3 +35,12 @@
 .selectedArtist {
     background: rgb(112, 166, 248);
 }
+
+.concertDiv{
+    border-style: dotted;
+    border-color: darkslateblue;
+    border-width: 2px;
+}
+.concertDiv:nth-of-type(odd){
+    background-color: rgb(206, 206, 216);
+}
