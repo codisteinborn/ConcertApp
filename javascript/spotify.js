@@ -39,10 +39,12 @@ if (last > 0){
                         if (artistArr.indexOf($(this).attr("data-artist")) < 0){
                             artistArr.push($(this).attr("data-artist"));
                             $(this).addClass("selectedArtist");
+                            cityClick();
                         }
                         else {
                             artistArr.splice(artistArr.indexOf($(this).attr("data-artist")), 1);
                             $(this).removeClass("selectedArtist");
+                            cityClick();
                         }
                     });
                     $("#artistList").append(newDiv);
