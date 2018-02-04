@@ -2,7 +2,7 @@ var city = "";
 var queryURL = "";
 var concertInfo = {};
 var allConcerts = [];
-var time = moment().format();
+var time = moment.utc().format();
 // console.log(time);
 var searchTime= time.substring(0,19) + "Z"
 // console.log(time2)
@@ -44,10 +44,11 @@ var renderConcerts = function () {
     for (var j = 0; j < allConcerts.length; j++) {
         var newAnchor = $("<div>");
         newAnchor.addClass("concertDiv");
+        newAnchor.append("<img src='" + allConcerts[j].image + "' alt='Concert Poster Image' height='56' width='100' />");
         newAnchor.append("<p>" + allConcerts[j].name + "</p>");
         newAnchor.append("<p>" + allConcerts[j].date + "</p>");
-        newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>");
-        newAnchor.append("<p>" + allConcerts[j].venue + "</p>");
+        //newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>");
+        newAnchor.append("<p>" + allConcerts[j].venue + ", " + allConcerts[j].venueCity + "</p>");
         newAnchor.attr("href", allConcerts[j].url);
         newAnchor.click(function () {
             window.open($(this).attr("href"),'_blank');
