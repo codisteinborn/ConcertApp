@@ -9,6 +9,11 @@
     position: relative;
     bottom: 0px;
 }
+
+.jumbotronText {
+    font-size: 30px;
+}
+
 .artistBox, .concertBox{
     border-style: solid;
     border-width: 3px;
