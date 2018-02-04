@@ -31,17 +31,19 @@ var artistClick = function () {
     console.log(allConcerts)
     setTimeout(function () { renderConcerts(); }, 1500);
 };
+
 var renderConcerts = function () {
     for (var j = 0; j < allConcerts.length; j++) {
         var newAnchor = $("<div>");
         newAnchor.addClass("concertDiv");
+        newAnchor.append("<img src='" + allConcerts[j].image + "' alt='Concert Poster Image' height='56' width='100' />");
         newAnchor.append("<p>" + allConcerts[j].name + "</p>");
         newAnchor.append("<p>" + allConcerts[j].date + "</p>");
-        newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>");
-        newAnchor.append("<p>" + allConcerts[j].venue + "</p>");
+        //newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>");
+        newAnchor.append("<p>" + allConcerts[j].venue + ", " + allConcerts[j].venueCity + "</p>");
         newAnchor.attr("href", allConcerts[j].url);
         newAnchor.click(function () {
-            window.open($(this).attr("href"), '_blank');
+            window.open($(this).attr("href"),'_blank');
         });
         $("#list").append(newAnchor);
         console.log(allConcerts[j].url)
