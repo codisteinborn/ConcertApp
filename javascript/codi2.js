@@ -3,13 +3,10 @@ var queryURL = "";
 var concertInfo = {};
 var allConcerts = [];
 var time = moment.utc().format();
-// console.log(time);
 var searchTime= time.substring(0,19) + "Z"
-// console.log(time2)
-var artistArr = ["Taylor Swift", "Kenny Chesney", "Kygo", "Hamilton"]
+// var artistArr = ["Taylor Swift", "Kenny Chesney", "Kygo", "Hamilton"]
 
 var cityClick = function (){
-// $("#citybtn").on("click", function (event) {
     $("#list").empty();
     allConcerts = [];
     for (var i = 0; i < artistArr.length; i++) {
@@ -57,5 +54,4 @@ var renderConcerts = function () {
         console.log(allConcerts[j].url)
     };
 };
-
 $("#citybtn").on("click", cityClick)
