@@ -1,12 +1,8 @@
-// push artists to artistSelect when clicked
-
-var artistSelect = ["Kygo", "Hairball"]
-
 
 var artistClick = function (){
         $("#list").empty();
         allConcerts = [];
-        for (var i = 0; i < artistSelect.length; i++) {
+        for (var i = 0; i < artistArr.length; i++) {
             city = String($("#city").val());
             queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&sort=date,asc&startDateTime=" + searchTime + "&apikey=f4oDs35w3TxVEHx3jnVKhKSCH7IW63g7";
             $.ajax({
