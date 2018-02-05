@@ -21,7 +21,18 @@
  h1 {
       font-size: 75px;
   }
-
+  h3{
+    font-size: 20px;
+    font-weight: bold;
+}
+  #spotImg{
+      height: 45px;
+      width: 45px;
+      float:right;
+  }
+body{
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
 .overlayText { 
     position:absolute;
     z-index:12;
@@ -35,7 +46,6 @@
 #headText {
     font-size: 25px;
 }
-
 
 #carouselImage1 {
     background: url("concert.jpg");
@@ -54,7 +64,7 @@
 }
 
 #carouselImage3 {
-    background: url("laserlightsconcert.jpg");
+    background: url("b&w.jpg");
     background-size: cover;
     background-position-y: center;
     position: relative;
@@ -62,14 +72,9 @@
 }
 
 .artistBox, .concertBox{
-    /* border-style: solid;
-    border-width: .5px;
-    border-color: rgb(40, 39, 39); */
     height: 500px;
-    overflow: scroll;
-    color: aliceblue;
+    color: whitesmoke;
     position: relative;
-
 }
 
 #concertList{
@@ -80,6 +85,7 @@
 
 .selectedArtist {
     background: rgb(95, 198, 99);
+    padding: 10px;
 }
 
 .concertDiv{
@@ -102,7 +108,7 @@
 .foot {
     width: 100%;
     margin: 0 auto;
-    background-color: rgb(8, 12, 10);
+    background-color: rgb(10, 16, 10);
     bottom: 0;
 }
 
@@ -117,6 +123,15 @@
 }
 .concertBox{
     background: linear-gradient(rgb(27, 41, 27), rgb(10, 16, 10));
+    overflow: scroll;
 }
 .artistBox{
-
+background-color: rgb(10, 16, 10);
+text-align: center;
+}
+#artistList{
+    color: whitesmoke;
+    font-size: 14px;
+    overflow: scroll;
+    padding: 14px;
+}

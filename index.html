@@ -11,9 +11,7 @@
 
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u"
         crossorigin="anonymous">
-
-
-
+    <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
 </head>
 
@@ -26,7 +24,7 @@
                 <div class="modal-header">
                     <h5 class="modal-title" id="exampleModalLongTitle">Spotify Login</h5>
                     <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
-                        <!-- <span aria-hidden="true">&times;</span>
+                    <!-- <span aria-hidden="true">&times;</span>
                     </button> -->
                 </div>
                 <div class="modal-body">
@@ -102,12 +100,16 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-3 artistBox">
-                      <div class="row">
+                <div class="row">
+                        <img id="spotImg" src="css/spotify.ico" alt="spotify logo">
+                    <h3>Artists you Follow</h3>
                     <form class="input-group">
                         <input type="text" class="form-control" id="followArtist" placeholder="Artist Name">
                         <span class="input-group-btn">
-                            <button class="btn btn-default" id="followButton" type="button">Follow</button>
+                            <!-- <button class="btn btn-default" id="followButton" type="button">Follow</button> -->
+                            <button class="btn btn-default" id="followButton" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
                         </span>
+                        
                     </form>
 
                     <button id="clearButton">Clear Selected</button>
@@ -143,7 +145,10 @@
     <div class="row foot">
         <div class="col-xs-12">
             <div>
-                <p class="crtext">&copy Copyright 2018 JF-CS-SL Powered By: <a href="https://www.spotify.com/us/" target="_blank">Spotify</a> & <a href="https://www.ticketmaster.com/?tm_link=tm_homeA_logo" target="_blank">Ticketmaster</a></p>
+                <p class="crtext">&copy Copyright 2018 JF-CS-SL Powered By:
+                    <a href="https://www.spotify.com/us/" target="_blank">Spotify</a> &
+                    <a href="https://www.ticketmaster.com/?tm_link=tm_homeA_logo" target="_blank">Ticketmaster</a>
+                </p>
             </div>
         </div>
     </div>
