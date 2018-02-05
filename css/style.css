@@ -9,7 +9,6 @@
 }
 
 
-
 .overlayTitle { 
     position:absolute;
     z-index:12;
@@ -38,16 +37,6 @@
     font-size: 25px;
 }
 
-.overlayLoginButton {
-    position:absolute;
-    z-index:12;
-    top:16%;
-    left:0;
-    width:100%;
-    text-align:center;
-    color:#fff;
-    font-size: 16px;
-}
 
 #carouselImage1 {
     background: url("concert.jpg");
