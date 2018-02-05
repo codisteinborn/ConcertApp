@@ -39,7 +39,7 @@ var cityClick = function () {
 };
 
 var artistClick = function () {
-    // if (city === "") {
+    if (city === "") {
         event.preventDefault();
         $("#list").empty();
         allConcerts = [];
@@ -71,8 +71,8 @@ var artistClick = function () {
             });
         };
         setTimeout(function () { renderConcerts(); }, 2000);
-    // }
-    // else {cityClick();}
+    }
+    else {cityClick();}
 };
 
 var renderConcerts = function () {
