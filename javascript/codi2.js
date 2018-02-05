@@ -6,6 +6,7 @@ var time = moment.utc().format();
 var searchTime= time.substring(0,19) + "Z";
 
 var cityClick = function (){
+    event.preventDefault();
     $("#list").empty();
     allConcerts = [];
     for (var i = 0; i < artistArr.length; i++) {
