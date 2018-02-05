@@ -68,6 +68,8 @@
     height: 500px;
     overflow: scroll;
     color: aliceblue;
+    position: relative;
+
 }
 
 #concertList{
@@ -86,8 +88,15 @@
     border-width: 2px;
     padding: 5px;
 }
+
 .concertDiv:nth-of-type(odd){
     background-color: rgb(206, 206, 216);
+}
+
+#clearButton {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
 }
 
 .foot {
@@ -110,6 +119,4 @@
     background: linear-gradient(rgb(27, 41, 27), rgb(10, 16, 10));
 }
 .artistBox{
-    background-color: rgb(10, 16, 10);
-    text-align: center;
-}
+

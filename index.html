@@ -102,16 +102,19 @@
     <div class="container-fluid">
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-3 artistBox">
+                      <div class="row">
+                    <form class="input-group">
+                        <input type="text" class="form-control" id="followArtist" placeholder="Artist Name">
+                        <span class="input-group-btn">
+                            <button class="btn btn-default" id="followButton" type="button">Follow</button>
+                        </span>
+                    </form>
+
+                    <button id="clearButton">Clear Selected</button>
+                </div>
                 <div class="row" id="artistList">
                     <p id="artists"></p>
                 </div>
-
-                <form class="input-group">
-                    <input type="text" class="form-control" id="followArtist" placeholder="Artist Name">
-                    <span class="input-group-btn">
-                        <button class="btn btn-default" id="followButton" type="button">Follow</button>
-                    </span>
-                </form>
 
             </div>
 
