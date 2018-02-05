@@ -1,4 +1,5 @@
 var artistClick = function () {
+    event.preventDefault();
     $("#list").empty();
     allConcerts = [];
     for (var i = 0; i < artistArr.length; i++) {
