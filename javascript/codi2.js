@@ -3,8 +3,7 @@ var queryURL = "";
 var concertInfo = {};
 var allConcerts = [];
 var time = moment.utc().format();
-var searchTime= time.substring(0,19) + "Z"
-// var artistArr = ["Taylor Swift", "Kenny Chesney", "Kygo", "Hamilton"]
+var searchTime= time.substring(0,19) + "Z";
 
 var cityClick = function (){
     $("#list").empty();
@@ -17,16 +16,17 @@ var cityClick = function (){
             type: "GET",
             dataType: "json",
         }).then(function (response) {
+            for (k in response._embedded.events) {
             concertInfo = {
-                name: response._embedded.events[0].name,
-                date: response._embedded.events[0].dates.start.localDate,
-                venue: response._embedded.events[0]._embedded.venues[0].name,
-                venueCity: response._embedded.events[0]._embedded.venues[0].city.name,
-                url: response._embedded.events[0].url,
-                image: response._embedded.events[0].images[0].url
+                name: response._embedded.events[k].name,
+                date: response._embedded.events[k].dates.start.localDate,
+                venue: response._embedded.events[k]._embedded.venues[0].name,
+                venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
+                url: response._embedded.events[k].url,
+                image: response._embedded.events[k].images[0].url
             }
             allConcerts.push(concertInfo);
-
+        }
             allConcerts.sort(function (a, b) {
                 var dateA = new Date(a.date);
                 var dateB = new Date(b.date);
@@ -34,7 +34,7 @@ var cityClick = function (){
             });
         });
     };
-    setTimeout(function () { renderConcerts(); }, 1500);
+    setTimeout(function () { renderConcerts(); }, 2000);
 };
 
 var renderConcerts = function () {

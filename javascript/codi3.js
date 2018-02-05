@@ -29,7 +29,7 @@ var artistClick = function () {
         });
     };
     console.log(allConcerts)
-    setTimeout(function () { renderConcerts(); }, 1500);
+    setTimeout(function () { renderConcerts(); }, 2000);
 };
 
 var renderConcerts = function () {
