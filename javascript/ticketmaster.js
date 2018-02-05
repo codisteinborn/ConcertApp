@@ -39,37 +39,40 @@ var cityClick = function () {
 };
 
 var artistClick = function () {
-    event.preventDefault();
-    $("#list").empty();
-    allConcerts = [];
-    for (var i = 0; i < artistArr.length; i++) {
-        city = String($("#city").val());
-        queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&sort=date,asc&startDateTime=" + searchTime + "&apikey=f4oDs35w3TxVEHx3jnVKhKSCH7IW63g7";
-        $.ajax({
-            url: queryURL,
-            type: "GET",
-            dataType: "json",
-        }).then(function (response) {
-            for (var k = 0; k < 20; k++) {
-                concertInfo = {
-                    name: response._embedded.events[k].name,
-                    date: response._embedded.events[k].dates.start.localDate,
-                    venue: response._embedded.events[k]._embedded.venues[0].name,
-                    venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
-                    url: response._embedded.events[k].url,
-                    image: response._embedded.events[k].images[0].url
+    if (city === "") {
+        event.preventDefault();
+        $("#list").empty();
+        allConcerts = [];
+        for (var i = 0; i < artistArr.length; i++) {
+            city = String($("#city").val());
+            queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&sort=date,asc&startDateTime=" + searchTime + "&apikey=f4oDs35w3TxVEHx3jnVKhKSCH7IW63g7";
+            $.ajax({
+                url: queryURL,
+                type: "GET",
+                dataType: "json",
+            }).then(function (response) {
+                for (var k = 0; k < 20; k++) {
+                    concertInfo = {
+                        name: response._embedded.events[k].name,
+                        date: response._embedded.events[k].dates.start.localDate,
+                        venue: response._embedded.events[k]._embedded.venues[0].name,
+                        venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
+                        url: response._embedded.events[k].url,
+                        image: response._embedded.events[k].images[0].url
+                    }
+                    allConcerts.push(concertInfo);
                 }
-                allConcerts.push(concertInfo);
-            }
 
-            allConcerts.sort(function (a, b) {
-                var dateA = new Date(a.date);
-                var dateB = new Date(b.date);
-                return dateA - dateB;
+                allConcerts.sort(function (a, b) {
+                    var dateA = new Date(a.date);
+                    var dateB = new Date(b.date);
+                    return dateA - dateB;
+                });
             });
-        });
-    };
-    setTimeout(function () { renderConcerts(); }, 2000);
+        };
+        setTimeout(function () { renderConcerts(); }, 2000);
+    }
+    else {cityClick();}
 };
 
 var renderConcerts = function () {
@@ -79,7 +82,6 @@ var renderConcerts = function () {
         newAnchor.append("<img src='" + allConcerts[j].image + "' alt='Concert Poster Image' height='56' width='100' />");
         newAnchor.append("<p>" + allConcerts[j].name + "</p>");
         newAnchor.append("<p>" + allConcerts[j].date + "</p>");
-        //newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>");
         newAnchor.append("<p>" + allConcerts[j].venue + ", " + allConcerts[j].venueCity + "</p>");
         newAnchor.attr("href", allConcerts[j].url);
         newAnchor.click(function () {
@@ -89,5 +91,5 @@ var renderConcerts = function () {
     };
 };
 
-$("#artistList").on("click", artistClick)
-$("#citybtn").on("click", cityClick)
+$("#artistList").on("click", artistClick);
+$("#citybtn").on("click", cityClick);
