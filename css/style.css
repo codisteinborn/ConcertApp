@@ -15,11 +15,14 @@
     border-color: rgb(84, 83, 83);
     height: 380px;
     overflow: scroll;
+    position: relative;
 }
+
 #login{
     float: left;
     font-size: 15px;
 }
+
 #foot{
     text-align: center;
     position: fixed;
@@ -43,6 +46,13 @@
     border-width: 2px;
     padding: 5px;
 }
+
 .concertDiv:nth-of-type(odd){
     background-color: rgb(206, 206, 216);
+}
+
+#clearButton {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
 }
