@@ -8,7 +8,6 @@
     height: 250px;
 }
 
-
 .overlayTitle { 
     position:absolute;
     z-index:12;
@@ -92,7 +91,6 @@
     background-color: rgb(206, 206, 216);
 }
 
-
 .foot {
     width: 100%;
     margin: 0 auto;
@@ -109,3 +107,14 @@
     text-align: center;
     margin-top: 10px;
 }
+.modal-title{
+    font-size: 25px;
+}
+/* .concertBox{
+    background-color: #2b352b;
+    opacity: .9;
+}
+.artistBox{
+    background-color: #073906;
+    opacity: .95;
+} */
