@@ -23,13 +23,43 @@ var artistRender = function(){
         newDiv.on("click", function(){
             if (artistArr.indexOf($(this).attr("data-artist")) < 0){
                 artistArr.push($(this).attr("data-artist"));
+                console.log("artistArr", artistArr);
+                if (localStorage.getItem("selectedArtistArray")){
+                    console.log("local storage exists");
+                    var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
+                    storedArtists.push($(this).attr("data-artist"));
+                    localStorage.setItem("selectedArtistArray", JSON.stringify(storedArtists));
+                }
+                else {
+                    console.log("local storage doesn't exist");
+                    var storedArtists = [];
+                    storedArtists.push($(this).attr("data-artist"));
+                    localStorage.setItem("selectedArtistArray", JSON.stringify(storedArtists));
+                }
                 $(this).addClass("selectedArtist");
             }
             else {
+                var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
+                storedArtists.splice(artistArr.indexOf($(this).attr("data-artist")), 1);
+                localStorage.setItem("selectedArtistArray", JSON.stringify(storedArtists));
                 artistArr.splice(artistArr.indexOf($(this).attr("data-artist")), 1);
                 $(this).removeClass("selectedArtist");
             }
         });
+        if (localStorage.getItem("selectedArtistArray")){
+            console.log("found stored array");
+            var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
+            console.log("stored Array", storedArtists);
+            for (j = 0; j < storedArtists.length; j++){
+                if (newDiv.attr("data-artist") === storedArtists[j]){
+                    console.log("data-artist", newDiv.attr("data-artist"));
+                    console.log("storedArtist", storedArtists[j]);
+                    artistArr.push(storedArtists[j]);
+                    newDiv.addClass("selectedArtist");
+                }
+            }
+            artistClick();
+        }
         $("#artistList").append(newDiv);
     }
 }
@@ -111,5 +141,24 @@ if (last > 0){
 $("#followButton").on("click", function(){
     var artist = String($("#followArtist").val());
     localStorage.setItem("follow", artist);
+    if (localStorage.getItem("selectedArtistArray")){
+        console.log("local storage exists");
+        var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
+        storedArtists.push(artist);
+        localStorage.setItem("selectedArtistArray", JSON.stringify(storedArtists));
+    }
+    else {
+        console.log("local storage doesn't exist");
+        var storedArtists = [];
+        storedArtists.push(artist);
+        localStorage.setItem("selectedArtistArray", JSON.stringify(storedArtists));
+    }
     window.location.replace("https://accounts.spotify.com/en/authorize?client_id=84dbfb40bf444d6bb409195e34dcd32d&response_type=token&scope=user-follow-modify&redirect_uri=https://codisteinborn.github.io/ConcertApp/");
+});
+
+$("#clearButton").on("click",function(){
+    artistArr = [];
+    localStorage.removeItem("selectedArtistArray");
+    $(".selectedArtist").removeClass("selectedArtist");
+    $("#list").empty();
 });

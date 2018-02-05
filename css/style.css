@@ -67,13 +67,14 @@
 }
 
 .artistBox, .concertBox{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    border-style: solid;
-    border-width: 3px;
-    border-color: rgb(84, 83, 83);
-    height: 380px;
+    /* border-style: solid;
+    border-width: .5px;
+    border-color: rgb(40, 39, 39); */
+    height: 500px;
     overflow: scroll;
+    color: aliceblue;
+    position: relative;
+
 }
 
 #concertList{
@@ -82,7 +83,7 @@
 }
 
 .selectedArtist {
-    background: rgb(112, 166, 248);
+    background: rgb(95, 198, 99);
 }
 
  .concertDiv{
@@ -104,32 +105,30 @@
     margin-bottom: 10px;
 }
 
-
+#clearButton {
+    position: absolute;
+    bottom: 5px;
+    right: 5px;
+}
 
 .foot {
     width: 100%;
     margin: 0 auto;
-    height: 50px;
-    background-color: rgb(84, 83, 83);
+    background-color: rgb(8, 12, 10);
     bottom: 0;
-    border-top: 5px solid whitesmoke;
-    border-bottom: 5px solid whitesmoke;
 }
 
 .crtext {
-    font-size: 16px;
+    font-size: 10px;
     color: whitesmoke;
     text-align: center;
-    margin-top: 10px;
+    margin-top: 5px;
 }
 .modal-title{
     font-size: 25px;
 }
-/* .concertBox{
-    background-color: #2b352b;
-    opacity: .9;
+.concertBox{
+    background: linear-gradient(rgb(27, 41, 27), rgb(10, 16, 10));
 }
 .artistBox{
-    background-color: #073906;
-    opacity: .95;
-} */
+
