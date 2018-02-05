@@ -1,32 +1,88 @@
+
+.carousel-inner {
+    height: 250px;
+}
+
 .jumbotron{
     color: rgb(6, 0, 0);
-    font-size: 150px;
     height: 250px;
-    text-align: center;
+}
+
+
+
+.overlayTitle { 
+    position:absolute;
+    z-index:12;
+    top:0%;
+    left:0;
+    width:100%;
+    text-align:center;
+    color:#fff;
+  }
+
+ h1 {
+      font-size: 75px;
+  }
+
+.overlayText { 
+    position:absolute;
+    z-index:12;
+    top:12%;
+    left:0;
+    width:100%;
+    text-align:center;
+    color:#fff;
+  }
+
+#headText {
+    font-size: 25px;
+}
+
+.overlayLoginButton {
+    position:absolute;
+    z-index:12;
+    top:16%;
+    left:0;
+    width:100%;
+    text-align:center;
+    color:#fff;
+    font-size: 16px;
+}
+
+#carouselImage1 {
     background: url("concert.jpg");
     background-size: cover;
     background-position-y: center;
     position: relative;
     bottom: 0px;
 }
+
+#carouselImage2 {
+    background: url("iPhoneconcertpic.jpg");
+    background-size: cover;
+    background-position-y: center;
+    position: relative;
+    bottom: 0px;
+}
+
+#carouselImage3 {
+    background: url("laserlightsconcert.jpg");
+    background-size: cover;
+    background-position-y: center;
+    position: relative;
+    bottom: 0px;
+}
+
 .artistBox, .concertBox{
+    margin-top: 20px;
+    margin-bottom: 20px;
     border-style: solid;
     border-width: 3px;
     border-color: rgb(84, 83, 83);
     height: 380px;
     overflow: scroll;
 }
-#login{
-    float: left;
-    font-size: 15px;
-}
-#foot{
-    text-align: center;
-    position: fixed;
-  bottom: 0;
-  background-color: rgb(84, 83, 83);
-  color: whitesmoke;
-}
+
 #concertList{
     height: auto;
     color: black;
@@ -45,4 +101,22 @@
 }
 .concertDiv:nth-of-type(odd){
     background-color: rgb(206, 206, 216);
+}
+
+
+.foot {
+    width: 100%;
+    margin: 0 auto;
+    height: 50px;
+    background-color: rgb(84, 83, 83);
+    bottom: 0;
+    border-top: 5px solid whitesmoke;
+    border-bottom: 5px solid whitesmoke;
+}
+
+.crtext {
+    font-size: 16px;
+    color: whitesmoke;
+    text-align: center;
+    margin-top: 10px;
 }
