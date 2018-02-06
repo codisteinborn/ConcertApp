@@ -19,11 +19,13 @@ var cityClick = function () {
     localStorage.setItem("city", city);
     for (var i = 0; i < artistArr.length; i++) {
         queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&city=" + city + "&sort=date,asc&startDateTime=" + searchTime + "&radius=30&apikey=aEo9tgraRerkwjEgT4qifF3P6rJBXxd7";
+        console.log("queryURL", queryURL);
         $.ajax({
             url: queryURL,
             type: "GET",
             dataType: "json",
             success: function (response) {
+                console.log("success", response)
                 for (k in response._embedded.events) {
                     concertInfo = {
                         name: response._embedded.events[k].name,
@@ -39,7 +41,7 @@ var cityClick = function () {
                 renderConcerts();
             },
             error: function (response){
-                console.log("response", response);
+                console.log("error", response);
                 return response;
             }
     
@@ -55,11 +57,13 @@ var artistClick = function () {
         for (var i = 0; i < artistArr.length; i++) {
             city = String($("#city").val());
             queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&sort=date,asc&startDateTime=" + searchTime + "&apikey=aEo9tgraRerkwjEgT4qifF3P6rJBXxd7";
+            console.log("queryURL", queryURL);
             $.ajax({
                 url: queryURL,
                 type: "GET",
                 dataType: "json",
                 success: function (response) {
+                    console.log("success", response)
                     for (var k = 0; k < 20; k++) {
                         concertInfo = {
                             name: response._embedded.events[k].name,
@@ -74,7 +78,7 @@ var artistClick = function () {
                     renderConcerts();
                 },
                 error: function (response){
-                    console.log("response", response);
+                    console.log("error", response);
                     return response;
                 }
             });
@@ -118,9 +122,10 @@ var renderConcerts = function () {
             concertTextVenue.addClass("overlayConcertTextVenue");
             newAnchor.append($(concertTextVenue).text(allConcerts[j].venue + ", " + allConcerts[j].venueCity ));
             newAnchor.attr("href", allConcerts[j].url);
-            newAnchor.click(function () {
+            newAnchor.on("click", function(){
                 window.open($(this).attr("href"), '_blank');
             });
+            $("#concertList").append(newAnchor);
         };
         rendering = false;
     };
