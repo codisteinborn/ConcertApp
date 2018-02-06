@@ -4,6 +4,7 @@ var concertInfo = {};
 var allConcerts = [];
 var time = moment.utc().format();
 var searchTime = time.substring(0, 19) + "Z";
+var rendering = false;
 
 if (localStorage.getItem("city")) {
     city = localStorage.getItem("city");
@@ -12,7 +13,7 @@ if (localStorage.getItem("city")) {
 
 var cityClick = function () {
     event.preventDefault();
-    $("#concertList").empty();
+
     allConcerts = [];
     city = String($("#city").val());
     localStorage.setItem("city", city);
@@ -32,22 +33,19 @@ var cityClick = function () {
                     url: response._embedded.events[k].url,
                     image: response._embedded.events[k].images[0].url
                 }
+                
                 allConcerts.push(concertInfo);
             }
-            allConcerts.sort(function (a, b) {
-                var dateA = new Date(a.date);
-                var dateB = new Date(b.date);
-                return dateA - dateB;
-            });
+
+            renderConcerts();
         });
     };
-    setTimeout(function () { renderConcerts(); }, 2000);
 };
 
 var artistClick = function () {
     if (city === "") {
         event.preventDefault();
-        $("#concertList").empty();
+
         allConcerts = [];
         for (var i = 0; i < artistArr.length; i++) {
             city = String($("#city").val());
@@ -66,37 +64,49 @@ var artistClick = function () {
                         url: response._embedded.events[k].url,
                         image: response._embedded.events[k].images[0].url
                     }
+                    
                     allConcerts.push(concertInfo);
                 }
 
-                allConcerts.sort(function (a, b) {
-                    var dateA = new Date(a.date);
-                    var dateB = new Date(b.date);
-                    return dateA - dateB;
-                });
+                renderConcerts();
             });
         };
-        setTimeout(function () { renderConcerts(); }, 2000);
     }
-    else {cityClick();}
+    else { cityClick(); }
 };
 
 var renderConcerts = function () {
-    for (var j = 0; j < allConcerts.length; j++) {
-        var newAnchor = $("<div>");
-        newAnchor.addClass("col-md-4");
-        newAnchor.addClass("concertDiv");
-        newAnchor.append("<img class='concertPic' src='" + allConcerts[j].image + "' alt='Concert Poster Image' height='175' width='100%' />");
-        newAnchor.append("<p>" + allConcerts[j].name + "</p>");
-        newAnchor.append("<p>" + allConcerts[j].date + "</p>");
-        newAnchor.append("<p>" + allConcerts[j].venue + "</p>");
-        newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>" )
-        newAnchor.attr("href", allConcerts[j].url);
-        newAnchor.click(function () {
-            window.open($(this).attr("href"), '_blank');
+    while(rendering){
+
+    }
+     if (!rendering) {
+        rendering = true;
+
+        allConcerts.sort(function (a, b) {
+            var dateA = new Date(a.date);
+            var dateB = new Date(b.date);
+            return dateA - dateB;
         });
-        $("#concertList").append(newAnchor);
-    };
+
+        console.log("render array ", allConcerts);
+        $("#concertList").empty();
+        for (var j = 0; j < allConcerts.length; j++) {
+            var newAnchor = $("<div>");
+            newAnchor.addClass("col-md-4");
+            newAnchor.addClass("concertDiv");
+            newAnchor.append("<img class='concertPic' src='" + allConcerts[j].image + "' alt='Concert Poster Image' height='175' width='100%' />");
+            newAnchor.append("<p>" + allConcerts[j].name + "</p>");
+            newAnchor.append("<p>" + allConcerts[j].date + "</p>");
+            newAnchor.append("<p>" + allConcerts[j].venue + "</p>");
+            newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>")
+            newAnchor.attr("href", allConcerts[j].url);
+            newAnchor.click(function () {
+                window.open($(this).attr("href"), '_blank');
+            });
+            $("#concertList").append(newAnchor);
+        };
+        rendering = false;
+    }
 };
 
 $("#artistList").on("click", artistClick);
