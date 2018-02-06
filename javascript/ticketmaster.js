@@ -49,7 +49,7 @@ var artistClick = function () {
         allConcerts = [];
         for (var i = 0; i < artistArr.length; i++) {
             city = String($("#city").val());
-            queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&sort=date,asc&startDateTime=" + searchTime + "&apikey=f4oDs35w3TxVEHx3jnVKhKSCH7IW63g7";
+            queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&sort=date,asc&startDateTime=" + searchTime + "&apikey=aEo9tgraRerkwjEgT4qifF3P6rJBXxd7";
             $.ajax({
                 url: queryURL,
                 type: "GET",
