@@ -16,22 +16,27 @@ var token = tokenURL.substring(first, last);
 var artistRender = function(){
     $("#artistList").empty();
     for (i = 0; i < followArray.length; i++){
-        var newDiv = $("<p>");
+        var newDiv = $("<div>");
         newDiv.addClass("artistDiv");
-        newDiv.attr("data-artist",followArray[i]);
-        newDiv.text(followArray[i]);
+        newDiv.attr("data-artist",followArray[i].name);
+        newDiv.html("<p class='artistText'>" + followArray[i].name + "</p>");
+
+        var photoDiv = $("<div>");
+        photoDiv.addClass("photoDiv");
+        photoDiv.css("background-image", "url('" + followArray[i].photo + "')");
+
+
+        newDiv.append(photoDiv);
+
         newDiv.on("click", function(){
             if (artistArr.indexOf($(this).attr("data-artist")) < 0){
                 artistArr.push($(this).attr("data-artist"));
-                console.log("artistArr", artistArr);
                 if (localStorage.getItem("selectedArtistArray")){
-                    console.log("local storage exists");
                     var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
                     storedArtists.push($(this).attr("data-artist"));
                     localStorage.setItem("selectedArtistArray", JSON.stringify(storedArtists));
                 }
                 else {
-                    console.log("local storage doesn't exist");
                     var storedArtists = [];
                     storedArtists.push($(this).attr("data-artist"));
                     localStorage.setItem("selectedArtistArray", JSON.stringify(storedArtists));
@@ -47,13 +52,9 @@ var artistRender = function(){
             }
         });
         if (localStorage.getItem("selectedArtistArray")){
-            console.log("found stored array");
             var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
-            console.log("stored Array", storedArtists);
             for (j = 0; j < storedArtists.length; j++){
                 if (newDiv.attr("data-artist") === storedArtists[j]){
-                    console.log("data-artist", newDiv.attr("data-artist"));
-                    console.log("storedArtist", storedArtists[j]);
                     artistArr.push(storedArtists[j]);
                     newDiv.addClass("selectedArtist");
                 }
@@ -75,19 +76,22 @@ if (last > 0){
 
             var followList = function (){
                 for (i = 0; i < response.artists.items.length; i++){
-                followArray.push(response.artists.items[i].name);
-                }
-            }
+                    var newArtist = {
+                        name: "",
+                        photo: ""
+                    };
+                    newArtist.name = response.artists.items[i].name;
+                    newArtist.photo = response.artists.items[i].images[0].url;
+                    followArray.push(newArtist);
+                };
+            };
 
             followList();
             artistRender();
-            console.log("followArray", followArray);
         }
     });
     
     if (localStorage.getItem("follow")){
-
-        console.log("local storage added?", localStorage.getItem("follow"));
 
         tokenURL = window.location.href;
 
@@ -96,11 +100,12 @@ if (last > 0){
         var last = URLArray.indexOf("&");
         var token = tokenURL.substring(first, last);
         var spotifyID = "";
-        var artist = localStorage.getItem("follow");
+        var artist = {
+            name: localStorage.getItem("follow"),
+            photo: ""
+        }
 
         followArray.push(artist);
-
-        console.log("followArray", followArray);
 
         $.ajax({
             url: 'https://api.spotify.com/v1/search?q=' + artist + '&type=artist',
@@ -110,7 +115,6 @@ if (last > 0){
 
             success: function(response) {
                 spotifyID = response.artists.items[0].id;
-                console.log(spotifyID);
 
                 $.ajax({
                     method: "PUT",
@@ -120,11 +124,8 @@ if (last > 0){
                     },
             
                     success: function(response) {
-                        console.log(artist, "followed");
 
                         localStorage.removeItem("follow");
-
-                        console.log("local storage cleared?", localStorage.getItem("follow"));
 
                         artistRender();
 
@@ -132,9 +133,7 @@ if (last > 0){
                 });
             }
         });
-
     };
-    
 };
 
 
@@ -142,13 +141,11 @@ $("#followButton").on("click", function(){
     var artist = String($("#followArtist").val());
     localStorage.setItem("follow", artist);
     if (localStorage.getItem("selectedArtistArray")){
-        console.log("local storage exists");
         var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
         storedArtists.push(artist);
         localStorage.setItem("selectedArtistArray", JSON.stringify(storedArtists));
     }
     else {
-        console.log("local storage doesn't exist");
         var storedArtists = [];
         storedArtists.push(artist);
         localStorage.setItem("selectedArtistArray", JSON.stringify(storedArtists));
