@@ -164,5 +164,5 @@ $("#clearButton").on("click", function () {
     artistArr = [];
     localStorage.removeItem("selectedArtistArray");
     $(".selectedArtist").removeClass("selectedArtist");
-    $("#list").empty();
+    $("#concertList").empty();
 });

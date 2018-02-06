@@ -5,12 +5,18 @@ var allConcerts = [];
 var time = moment.utc().format();
 var searchTime = time.substring(0, 19) + "Z";
 
+if (localStorage.getItem("city")) {
+    city = localStorage.getItem("city");
+    $("#city").val(city);
+}
+
 var cityClick = function () {
     event.preventDefault();
     $("#concertList").empty();
     allConcerts = [];
+    city = String($("#city").val());
+    localStorage.setItem("city", city);
     for (var i = 0; i < artistArr.length; i++) {
-        city = String($("#city").val());
         queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&city=" + city + "&sort=date,asc&startDateTime=" + searchTime + "&radius=30&apikey=f4oDs35w3TxVEHx3jnVKhKSCH7IW63g7";
         $.ajax({
             url: queryURL,
