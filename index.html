@@ -17,30 +17,25 @@
 
 <body>
 
-    <!-- Modal -->
-    <!-- <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-        <div class="modal-dialog modal-dialog-centered" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLongTitle">Spotify Login</h5>
-                    <!-- <button type="button" class="close" data-dismiss="modal" aria-label="Close"> -->
-                    <!-- <span aria-hidden="true">&times;</span>
-                    </button> -->
-                <!-- </div>
-                <div class="modal-body">
-                    Click below to authorize access to your Spotify account.
-                </div>
-                <div class="modal-footer">
-                    <button id="login" type="button" class="btn btn-success btn-lg btn-block" data-dismiss="modal">Login</button>
-                </div>
-            </div>
+    <!-- The overlay -->
+    <div id="myNav" class="overlayNav">
+        <!-- Button to close the overlay navigation -->
+        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+        <!-- Overlay content -->
+        <div class="overlay-NavContent">
+            <h2>Click below to Authorize access to your Spotify account.</h2>
+            <button id="login" type="button" class="btn btn-lg btn-block" data-dismiss="modal">Login</button>
         </div>
-    </div> -->
+    </div>
 
     <div class="container-fluid anchor">
 
         <div class="overlayTitle">
-            <h1>Your Concert <span class="green">Sp</span><img id="headImg" src="css/spotify.ico" alt="spotify logo"><span class="green">t</span></h1>
+            <h1>Your Concert
+                <span class="green">Sp</span>
+                <img id="headImg" src="css/spotify.ico" alt="spotify logo">
+                <span class="green">t</span>
+            </h1>
         </div>
         <!-- <div class="overlayText">
             <p id="headText">More text here...</p>
@@ -52,7 +47,7 @@
                 <li data-target="#carousel-concertApp" data-slide-to="1"></li>
                 <li data-target="#carousel-concertApp" data-slide-to="2"></li>
                 <li data-target="#carousel-concertApp" data-slide-to="3"></li>
-                
+
             </ol>
 
             <!-- Wrapper -->
@@ -74,8 +69,8 @@
                 </div>
 
                 <div class="item">
-                        <div class="jumbotron" id="carouselImage4">
-                        </div>
+                    <div class="jumbotron" id="carouselImage4">
+                    </div>
                 </div>
 
 
@@ -87,49 +82,53 @@
     </div>
 
 
-<div class="container-fluid">
-    
+    <div class="container-fluid">
+
         <div class="row">
             <div class="col-md-3 col-sm-3 col-xs-3 artistBox">
                 <div class="row">
-                        <img id="spotImg" src="css/spotify.ico" alt="spotify logo">
+                    <img id="spotImg" src="css/spotify.ico" alt="spotify logo">
                     <h3>Artists you Follow</h3>
                     <form class="input-group">
-                        <input type="text" class="form-control" id="followArtist" placeholder="Artist Name">
+                        <input type="text" class="form-control" id="followArtist" placeholder="Follow a new Artist">
                         <span class="input-group-btn">
                             <!-- <button class="btn btn-default" id="followButton" type="button">Follow</button> -->
-                            <button class="btn btn-default" id="followButton" type="button"><span class="glyphicon glyphicon-search" aria-hidden="true"></span></button>
+                            <button class="btn btn-default" id="followButton" type="button">
+                                <span class="glyphicon glyphicon-search" aria-hidden="true"></span>
+                            </button>
                         </span>
-                        
+
                     </form>
 
-                    <button id="clearButton">Clear Selected</button>
+                    <button id="clearButton"><span class="glyphicon glyphicon-trash" aria-hidden="true"></button>
                 </div>
-                <div class="row" id="artistList">
-                    <p id="artists"></p>
+                <div id="artistList">
                 </div>
 
             </div>
 
             <div class="col-md-9 col-sm-9 col-xs-9 concertBox">
                 <div class="row">
-                    <div class="col-md-6 col-sm-6 col-xs-6">
+                    <h3>Concerts</h3>
+
                         <form class="input-group">
-                            <input type="text" class="form-control" id="city" placeholder="City">
+                            <input type="text" class="form-control" id="city" placeholder="Search by City">
                             <span class="input-group-btn">
-                                <button class="btn btn-default" id="citybtn" type="button">Search!</button>
-                            </span>
+                                <button class="btn btn-default" id="citybtn" type="button">
+                                    <span class="glyphicon glyphicon-search" aria-hidden="true">
+                                </button>
+                                </span>
                         </form>
                     </div>
                 </div>
                 <div class="row" id="concertList">
-                    
+
                 </div>
             </div>
         </div>
 
-    
-</div>
+
+    </div>
 
 
     <!-- Footer Content -->
