@@ -216,9 +216,7 @@ height: 750px;
     height: 80px;
     width: 100%;
     margin: 10px;
-    border-bottom: rgba(50, 50, 50, 0.79);
-    border-style: solid;
-border-width: 1px;
+    border-bottom: 1px solid rgba(50, 50, 50, 0.79);
 }
 
 .artistText {
