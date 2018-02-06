@@ -18,7 +18,7 @@ var cityClick = function () {
     city = String($("#city").val());
     localStorage.setItem("city", city);
     for (var i = 0; i < artistArr.length; i++) {
-        queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&city=" + city + "&sort=date,asc&startDateTime=" + searchTime + "&radius=30&apikey=f4oDs35w3TxVEHx3jnVKhKSCH7IW63g7";
+        queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&city=" + city + "&sort=date,asc&startDateTime=" + searchTime + "&radius=30&apikey=aEo9tgraRerkwjEgT4qifF3P6rJBXxd7";
         $.ajax({
             url: queryURL,
             type: "GET",
