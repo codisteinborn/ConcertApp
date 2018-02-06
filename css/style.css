@@ -89,7 +89,6 @@ body{
 
 .selectedArtist {
     background: rgb(95, 198, 99);
-    padding: 10px;
 }
 
  .concertDiv{
@@ -145,7 +144,6 @@ text-align: center;
     color: whitesmoke;
     font-size: 14px;
     overflow: scroll;
-    padding: 14px;
 }
 
 .photoDiv {
