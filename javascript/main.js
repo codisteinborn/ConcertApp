@@ -6,13 +6,13 @@ $(window).on('load', function () {
         $("#myNav").style.width = "100%";
     }
     else {$("#myNav").addClass("hidden");
-}
+    }
 });
 
-$("#login").on('click', function closeNav() {
+$("#login").on('click', function() {
     $("#myNav").addClass("hidden");
 });
 
-$(".closebtn").on('click', function closeNav() {
+$(".closebtn").on('click', function() {
     $("#myNav").addClass("hidden");
 });
