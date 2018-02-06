@@ -78,13 +78,25 @@ var artistClick = function () {
 var renderConcerts = function () {
     for (var j = 0; j < allConcerts.length; j++) {
         var newAnchor = $("<div>");
-        newAnchor.addClass("col-md-4");
+        newAnchor.addClass("col-md-6");
         newAnchor.addClass("concertDiv");
-        newAnchor.append("<img class='concertPic' src='" + allConcerts[j].image + "' alt='Concert Poster Image' height='175' width='100%' />");
-        newAnchor.append("<p>" + allConcerts[j].name + "</p>");
-        newAnchor.append("<p>" + allConcerts[j].date + "</p>");
-        newAnchor.append("<p>" + allConcerts[j].venue + "</p>");
-        newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>" )
+        var concertPicDiv = $("<div>");
+        concertPicDiv.addClass("concertPic");
+        concertPicDiv.css("background-image", "url('" + allConcerts[j].image + "')");
+        newAnchor.append(concertPicDiv);
+        var concertTextDate = $("<p>");
+        concertTextDate.addClass("overlayConcertTextDate");
+        newAnchor.append($(concertTextDate).text(allConcerts[j].date));
+        var concertTextName = $("<p>");
+        concertTextName.addClass("overlayConcertTextName");
+        newAnchor.append($(concertTextName).text(allConcerts[j].name));
+        var concertTextVenue = $("<p>");
+        concertTextVenue.addClass("overlayConcertTextVenue");
+        newAnchor.append($(concertTextVenue).text(allConcerts[j].venue + ", " + allConcerts[j].venueCity ));
+        // newAnchor.append("<p>" + allConcerts[j].date + "</p>");
+        // newAnchor.append("<p>" + allConcerts[j].name + "</p>");
+        // newAnchor.append("<p>" + allConcerts[j].venue + ", " + allConcerts[j].venueCity + "</p>");
+        //newAnchor.append("<p>" + allConcerts[j].venueCity + "</p>" )
         newAnchor.attr("href", allConcerts[j].url);
         newAnchor.click(function () {
             window.open($(this).attr("href"), '_blank');
