@@ -5,7 +5,7 @@ $(window).on('load', function () {
     if (loadURLTest < 0) {
         $("#myNav").style.width = "100%";
     }
-    else { $("#myNav").style.width = "0%";
+    else {$("#myNav").addClass("hidden");
 }
 });
 
