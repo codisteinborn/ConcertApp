@@ -26,7 +26,7 @@ var artistRender = function(){
         photoDiv.css("background-image", "url('" + followArray[i].photo + "')");
 
 
-        newDiv.append(photoDiv);
+        newDiv.prepend(photoDiv);
 
         newDiv.on("click", function(){
             if (artistArr.indexOf($(this).attr("data-artist")) < 0){
