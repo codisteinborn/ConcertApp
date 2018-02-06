@@ -5,6 +5,8 @@ $(window).on('load', function () {
     if (loadURLTest < 0) {
         $("#myNav").style.width = "100%";
     }
+    else {$("#myNav").addClass("hidden");
+}
 });
 
 $("#login").on('click', function closeNav() {
