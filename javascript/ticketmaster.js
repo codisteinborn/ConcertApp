@@ -110,8 +110,10 @@ var renderConcerts = function () {
             window.open($(this).attr("href"), '_blank');
           
         rendering = false;
-    }
+    });
 };
+}
+}
 
 $("#artistList").on("click", artistClick);
 $("#citybtn").on("click", cityClick);
