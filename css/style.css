@@ -122,19 +122,19 @@ body{
 }
 
  .concertDiv{
-     height: 350px;
-     background-color: #fff;
+     height: 300px;
+     background-color: rgb(211, 203, 205);
      color: black;
      text-align: center;
      line-height: 1.4;
      float: left;
-     width: 30%;
-     margin-left: 20px;
+     width: 43%;
+     margin-left: 40px;
      margin-top: 20px;
-     padding-left: 5px;
-     padding-right: 5px; 
-     border: 2px solid #073906; 
-     box-shadow: 0 1px 2px #F3536B;
+     padding-left: 0px;
+     padding-right: 0px; 
+     border: 2px solid #1DD069; 
+     box-shadow: 0 1px 2px rgb(235, 223, 225);
      transition: all 0.3s ease-in-out;
 } 
 
@@ -146,7 +146,7 @@ body{
     height: 100%;
     opacity: 0;
     border-radius: 5px;
-    box-shadow: 0 5px 15px #F3536B;
+    box-shadow: 0 5px 15px  rgb(247, 242, 243);
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -159,9 +159,40 @@ transform: scale(1.05, 1.05);
 }
 
 .concertPic {
-    margin-top: 10px;
-    margin-bottom: 10px;
+    background-position: center center;
+    background-size: cover;
+    height: 100%;
+    width: 100%;
+    padding: 0;
 }
+
+.overlayConcertTextDate {
+    position: absolute;
+    z-index: 12;
+    top: 80%;
+    text-align: left;
+    font-weight: bold;
+    color: black;
+}
+
+.overlayConcertTextName {
+    position: absolute;
+    z-index: 12;
+    top: 85%;
+    text-align: left;
+    font-weight: bold;
+    color: black;
+}
+.overlayConcertTextVenue{
+    position: absolute;
+    z-index: 12;
+    top: 90%;
+    text-align: left;
+    font-weight: bold;
+    color: black;
+}
+
+
 
 #clearButton {
     position: absolute;
@@ -186,7 +217,7 @@ transform: scale(1.05, 1.05);
     font-size: 25px;
 }
 .concertBox{
-    background: linear-gradient(rgb(101,104,101), rgb(10, 16, 10));
+    background: linear-gradient(rgb(10, 16, 10),rgb(101,104,101), rgb(10, 16, 10));
     overflow: scroll;
     height: 750px;
 }
