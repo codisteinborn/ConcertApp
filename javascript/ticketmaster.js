@@ -7,7 +7,7 @@ var searchTime = time.substring(0, 19) + "Z";
 
 var cityClick = function () {
     event.preventDefault();
-    $("#list").empty();
+    $("#concertList").empty();
     allConcerts = [];
     for (var i = 0; i < artistArr.length; i++) {
         city = String($("#city").val());
@@ -41,7 +41,7 @@ var cityClick = function () {
 var artistClick = function () {
     if (city === "") {
         event.preventDefault();
-        $("#list").empty();
+        $("#concertList").empty();
         allConcerts = [];
         for (var i = 0; i < artistArr.length; i++) {
             city = String($("#city").val());
