@@ -229,12 +229,13 @@ border-width: 1px;
     width: 75%;
 }
 
-#followButton, #citybtn{
+#followButton, #citybtn, #clearButton{
     border-radius: 40%;
     backface-visibility: hidden;
+ color: black;
 }
 #city, #followArtist{
-    border-radius: 10%;
+    border-radius: 5%;
 }
 
 /*From w3 school website.... The Overlay (background) */
