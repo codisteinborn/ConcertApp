@@ -3,7 +3,7 @@ $(window).on('load', function () {
     var loadURLArr = loadURL.split("");
     var loadURLTest = loadURLArr.indexOf("&");
     if (loadURLTest < 0) {
-        $("#myNav").style.width = "100%";
+        $("#myNav").removeClass("hidden");
     }
     else {$("#myNav").addClass("hidden");
     }
@@ -14,5 +14,9 @@ $("#login").on('click', function() {
 });
 
 $(".closebtn").on('click', function() {
+    $("#myNav").addClass("hidden");
+});
+
+$(".closebtn").on('click', function(){
     $("#myNav").addClass("hidden");
 });
