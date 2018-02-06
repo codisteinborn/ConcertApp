@@ -1,7 +1,6 @@
  
-#exBorderRadius {
+.anchor {
     padding: 0;
-
 }
 
 .carousel-inner {
@@ -61,18 +60,18 @@
   }
 
  h1 {
-      font-size: 75px;
+      font-size: 85px;
       color: #DF294D;
       font-weight: bold;
     }
 
 #headImg{
-        height: 60px;
-        width: 60px;
+        height: 65px;
+        width: 65px;
     }
 
 .green {
-    color: rgb(95, 198, 99);
+    color: #1DD069;
 }
 
   h3{
@@ -124,10 +123,11 @@ body{
 }
 
  .concertDiv{
-     height: 300px;
+     height: 350px;
      background-color: #fff;
      color: black;
      text-align: center;
+     line-height: 1.4;
      float: left;
      width: 30%;
      margin-left: 20px;

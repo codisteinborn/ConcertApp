@@ -80,7 +80,7 @@ var renderConcerts = function () {
         var newAnchor = $("<div>");
         newAnchor.addClass("col-md-4");
         newAnchor.addClass("concertDiv");
-        newAnchor.append("<img class='concertPic' src='" + allConcerts[j].image + "' alt='Concert Poster Image' height='225' width='100%' />");
+        newAnchor.append("<img class='concertPic' src='" + allConcerts[j].image + "' alt='Concert Poster Image' height='175' width='100%' />");
         newAnchor.append("<p>" + allConcerts[j].name + "</p>");
         newAnchor.append("<p>" + allConcerts[j].date + "</p>");
         newAnchor.append("<p>" + allConcerts[j].venue + "</p>");
