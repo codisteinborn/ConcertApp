@@ -11,7 +11,7 @@ if (localStorage.getItem("city")) {
     $("#city").val(city);
 }
 
-var citySearch = function() {
+var citySearch = function () {
 
     allConcerts = [];
     city = String($("#city").val());
@@ -54,7 +54,7 @@ var citySearch = function() {
     };
 };
 
-var artistSearch = function() {
+var artistSearch = function () {
 
     if (city === "") {
 
@@ -94,8 +94,8 @@ var artistSearch = function() {
             });
         };
     }
-    else { 
-        citySearch(); 
+    else {
+        citySearch();
     }
 };
 
@@ -111,13 +111,13 @@ var renderConcerts = function () {
             var dateB = new Date(b.date);
             return dateA - dateB;
         });
-        for (key in allConcerts){
-            allConcerts[key].image.sort(function(a,b){
+        for (key in allConcerts) {
+            allConcerts[key].image.sort(function (a, b) {
                 var widthA = new Number(a.width);
                 var widthB = new Number(b.width);
                 return widthB - widthA;
-        })
-        }
+            })
+        };
 
         $("#concertList").empty();
 
@@ -129,9 +129,16 @@ var renderConcerts = function () {
             concertPicDiv.addClass("concertPic");
             concertPicDiv.css("background-image", "url('" + allConcerts[j].image[1].url + "')");
             newAnchor.append(concertPicDiv);
-            var concertTextDate = $("<p>");
+            var concertTextDate = $("<div>");
             concertTextDate.addClass("overlayConcertTextDate");
-            newAnchor.append($(concertTextDate).text(allConcerts[j].date));
+            var tmYear = allConcerts[j].date.substring(0, 4);
+            var tmMonth = allConcerts[j].date.substring(5, 7);
+            tmMonth = parseInt(tmMonth);
+            var months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+            tmMonth = months[tmMonth - 1];
+            var tmDay = allConcerts[j].date.substring(8, 10);
+            newAnchor.append($(concertTextDate).append(tmMonth));
+            newAnchor.append($(concertTextDate).append("<p id='dayStyle'>" + tmDay + "</p>"));
             var concertTextName = $("<p>");
             concertTextName.addClass("overlayConcertTextName");
             newAnchor.append($(concertTextName).text(allConcerts[j].name));
@@ -148,12 +155,12 @@ var renderConcerts = function () {
     };
 };
 
-var artistClick = function(event){
+var artistClick = function (event) {
     event.preventDefault();
     artistSearch();
 }
 
-var cityClick = function(event){
+var cityClick = function (event) {
     event.preventDefault();
     citySearch();
 }
