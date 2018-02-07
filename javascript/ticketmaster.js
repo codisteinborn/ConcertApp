@@ -25,20 +25,25 @@ var citySearch = function() {
             dataType: "json",
             success: function (response) {
                 console.log("success", response)
-                for (k in response._embedded.events) {
-                    concertInfo = {
-                        name: response._embedded.events[k].name,
-                        date: response._embedded.events[k].dates.start.localDate,
-                        venue: response._embedded.events[k]._embedded.venues[0].name,
-                        venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
-                        url: response._embedded.events[k].url,
-                        image: response._embedded.events[k].images
+                if (response._embedded){
+                    for (k in response._embedded.events) {
+                        concertInfo = {
+                            name: response._embedded.events[k].name,
+                            date: response._embedded.events[k].dates.start.localDate,
+                            venue: response._embedded.events[k]._embedded.venues[0].name,
+                            venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
+                            url: response._embedded.events[k].url,
+                            image: response._embedded.events[k].images
+                        }
+                        
+                        allConcerts.push(concertInfo);
+                        console.log(concertInfo);
                     }
-                    
-                    allConcerts.push(concertInfo);
-                    console.log(concertInfo)
+                    renderConcerts();
                 }
-                renderConcerts();
+                else {
+                    console.log("no concerts");
+                }
             },
             error: function (response) {
                 console.log("error", response);
@@ -63,20 +68,24 @@ var artistSearch = function() {
                 type: "GET",
                 dataType: "json",
                 success: function (response) {
-                    console.log("success", response)
-                    for (k in response._embedded.events) {
-                        concertInfo = {
-                            name: response._embedded.events[k].name,
-                            date: response._embedded.events[k].dates.start.localDate,
-                            venue: response._embedded.events[k]._embedded.venues[0].name,
-                            venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
-                            url: response._embedded.events[k].url,
-                            image: response._embedded.events[k].images
+                    if (response._embedded){
+                        for (k in response._embedded.events) {
+                            concertInfo = {
+                                name: response._embedded.events[k].name,
+                                date: response._embedded.events[k].dates.start.localDate,
+                                venue: response._embedded.events[k]._embedded.venues[0].name,
+                                venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
+                                url: response._embedded.events[k].url,
+                                image: response._embedded.events[k].images
+                            }
+                            allConcerts.push(concertInfo);
+                            console.log(concertInfo);
                         }
-                        allConcerts.push(concertInfo);
-                        console.log(concertInfo)
+                        renderConcerts();
                     }
-                    renderConcerts();
+                    else {
+                        console.log("no concerts");
+                    }
                 },
                 error: function (response) {
                     console.log("error", response);
