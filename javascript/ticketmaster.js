@@ -12,7 +12,7 @@ if (localStorage.getItem("city")) {
 }
 
 var cityClick = function () {
-    event.preventDefault();
+    // event.preventDefault();
 
     allConcerts = [];
     city = String($("#city").val());
@@ -33,25 +33,26 @@ var cityClick = function () {
                         venue: response._embedded.events[k]._embedded.venues[0].name,
                         venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
                         url: response._embedded.events[k].url,
-                        image: response._embedded.events[k].images[0].url
+                        image: response._embedded.events[k].images
                     }
                     
                     allConcerts.push(concertInfo);
+                    console.log(concertInfo)
                 }
                 renderConcerts();
             },
-            error: function (response){
+            error: function (response) {
                 console.log("error", response);
                 return response;
             }
-    
+
         });
     };
 };
 
 var artistClick = function () {
     if (city === "") {
-        event.preventDefault();
+        // event.preventDefault();
 
         allConcerts = [];
         for (var i = 0; i < artistArr.length; i++) {
@@ -71,26 +72,27 @@ var artistClick = function () {
                             venue: response._embedded.events[k]._embedded.venues[0].name,
                             venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
                             url: response._embedded.events[k].url,
-                            image: response._embedded.events[k].images[0].url
+                            image: response._embedded.events[k].images
                         }
                         allConcerts.push(concertInfo);
+                        console.log(concertInfo)
                     }
                     renderConcerts();
                 },
-                error: function (response){
+                error: function (response) {
                     console.log("error", response);
                     return response;
                 }
             });
         };
     }
-    else { 
-        cityClick(); 
+    else {
+        cityClick();
     }
 };
 
 var renderConcerts = function () {
-    while(rendering){
+    while (rendering) {
         console.log("function waiting for rendering to finish");
     }
     if (!rendering) {
@@ -101,8 +103,15 @@ var renderConcerts = function () {
             var dateB = new Date(b.date);
             return dateA - dateB;
         });
+        for (key in allConcerts){
+            allConcerts[key].image.sort(function(a,b){
+                var widthA = new Number(a.width);
+                var widthB = new Number(b.width);
+                return widthB - widthA;
+        })
+        }
 
-       $("#concertList").empty();
+        $("#concertList").empty();
 
         for (var j = 0; j < allConcerts.length; j++) {
             var newAnchor = $("<div>");
@@ -110,7 +119,7 @@ var renderConcerts = function () {
             newAnchor.addClass("concertDiv");
             var concertPicDiv = $("<div>");
             concertPicDiv.addClass("concertPic");
-            concertPicDiv.css("background-image", "url('" + allConcerts[j].image + "')");
+            concertPicDiv.css("background-image", "url('" + allConcerts[j].image[1].url + "')");
             newAnchor.append(concertPicDiv);
             var concertTextDate = $("<p>");
             concertTextDate.addClass("overlayConcertTextDate");
@@ -120,9 +129,9 @@ var renderConcerts = function () {
             newAnchor.append($(concertTextName).text(allConcerts[j].name));
             var concertTextVenue = $("<p>");
             concertTextVenue.addClass("overlayConcertTextVenue");
-            newAnchor.append($(concertTextVenue).text(allConcerts[j].venue + ", " + allConcerts[j].venueCity ));
+            newAnchor.append($(concertTextVenue).text(allConcerts[j].venue + ", " + allConcerts[j].venueCity));
             newAnchor.attr("href", allConcerts[j].url);
-            newAnchor.on("click", function(){
+            newAnchor.on("click", function () {
                 window.open($(this).attr("href"), '_blank');
             });
             $("#concertList").append(newAnchor);
