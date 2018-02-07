@@ -42,7 +42,7 @@ var citySearch = function() {
                     renderConcerts();
                 }
                 else {
-                    console.log("no concerts");
+                    renderConcerts();
                 }
             },
             error: function (response) {
@@ -84,7 +84,7 @@ var artistSearch = function() {
                         renderConcerts();
                     }
                     else {
-                        console.log("no concerts");
+                        renderConcerts();
                     }
                 },
                 error: function (response) {
