@@ -51,17 +51,18 @@ var artistRender = function () {
                 $(this).removeClass("selectedArtist");
             }
         });
-        if (localStorage.getItem("selectedArtistArray")) {
-            var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
-            for (j = 0; j < storedArtists.length; j++) {
-                if (newDiv.attr("data-artist") === storedArtists[j]) {
-                    artistArr.push(storedArtists[j]);
-                    newDiv.addClass("selectedArtist");
-                }
-            }
-            artistClick();
-        }
         $("#artistList").append(newDiv);
+    }
+    if (localStorage.getItem("selectedArtistArray")) {
+        var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
+        console.log("Pushed 10:55");
+        for (j = 0; j < storedArtists.length; j++) {
+            if (newDiv.attr("data-artist") === storedArtists[j]) {
+                artistArr.push(storedArtists[j]);
+                newDiv.addClass("selectedArtist");
+            }
+        }
+        artistSearch();
     }
 }
 
