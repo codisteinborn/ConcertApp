@@ -134,7 +134,7 @@ var renderConcerts = function () {
             var tmYear = allConcerts[j].date.substring(0, 4);
             var tmMonth = allConcerts[j].date.substring(5, 7);
             tmMonth = parseInt(tmMonth);
-            var months = ["Jan", "Feb", "March", "April", "May", "June", "July", "Aug", "Sept", "Oct", "Nov", "Dec"];
+            var months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
             tmMonth = months[tmMonth - 1];
             var tmDay = allConcerts[j].date.substring(8, 10);
             newAnchor.append($(concertTextDate).append(tmMonth));
