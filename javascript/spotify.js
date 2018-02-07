@@ -55,12 +55,9 @@ var artistRender = function () {
     }
     if (localStorage.getItem("selectedArtistArray")) {
         var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
-        console.log("Pushed 10:55");
         for (j = 0; j < storedArtists.length; j++) {
-            if (newDiv.attr("data-artist") === storedArtists[j]) {
-                artistArr.push(storedArtists[j]);
-                newDiv.addClass("selectedArtist");
-            }
+            artistArr.push(storedArtists[j]);
+            $("div[data-artist='" + storedArtists[j] + "']").addClass("selectedArtist");
         }
         artistSearch();
     }
