@@ -124,6 +124,7 @@ body{
  .concertDiv{
      height: 300px;
      background-color: rgb(211, 203, 205);
+     background: linear-gradient(to right, #DF294D, #1DD069);
      color: black;
      text-align: center;
      line-height: 1.4;
@@ -164,24 +165,27 @@ transform: scale(1.05, 1.05);
     height: 100%;
     width: 100%;
     padding: 0;
+    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 68%);
 }
 
 .overlayConcertTextDate {
     position: absolute;
     z-index: 12;
-    top: 80%;
+    top: 74%;
     text-align: left;
     font-weight: bold;
     color: black;
+    margin-left: 5px;
 }
 
 .overlayConcertTextName {
     position: absolute;
     z-index: 12;
-    top: 85%;
+    top: 82%;
     text-align: left;
     font-weight: bold;
     color: black;
+    margin-left: 5px;
 }
 .overlayConcertTextVenue{
     position: absolute;
@@ -190,6 +194,7 @@ transform: scale(1.05, 1.05);
     text-align: left;
     font-weight: bold;
     color: black;
+    margin-left: 5px;
 }
 
 
