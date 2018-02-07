@@ -62,7 +62,7 @@ var artistRender = function () {
                 newDiv.addClass("selectedArtist");
             }
         }
-        artistClick();
+        artistSearch();
     }
 }
 

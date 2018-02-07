@@ -11,15 +11,14 @@ if (localStorage.getItem("city")) {
     $("#city").val(city);
 }
 
-var cityClick = function (event) {
-    event.preventDefault();
+var citySearch = function() {
 
     allConcerts = [];
     city = String($("#city").val());
     localStorage.setItem("city", city);
     for (var i = 0; i < artistArr.length; i++) {
         queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&city=" + city + "&sort=date,asc&startDateTime=" + searchTime + "&radius=30&apikey=aEo9tgraRerkwjEgT4qifF3P6rJBXxd7";
-        console.log("cityClick queryURL", queryURL);
+        console.log("citySearch queryURL", queryURL);
         $.ajax({
             url: queryURL,
             type: "GET",
@@ -49,9 +48,7 @@ var cityClick = function (event) {
     };
 };
 
-var artistClick = function (event) {
-
-    event.preventDefault();
+var artistSearch = function() {
 
     if (city === "") {
 
@@ -59,7 +56,7 @@ var artistClick = function (event) {
         for (var i = 0; i < artistArr.length; i++) {
             city = String($("#city").val());
             queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&sort=date,asc&startDateTime=" + searchTime + "&apikey=aEo9tgraRerkwjEgT4qifF3P6rJBXxd7";
-            console.log("artistClick queryURL", queryURL);
+            console.log("artistSearch queryURL", queryURL);
             $.ajax({
                 url: queryURL,
                 type: "GET",
@@ -87,7 +84,7 @@ var artistClick = function (event) {
         };
     }
     else { 
-        cityClick(); 
+        citySearch(); 
     }
 };
 
@@ -132,6 +129,17 @@ var renderConcerts = function () {
         rendering = false;
     };
 };
+
+var artistClick = function(event){
+    event.preventDefault();
+    artistSearch();
+}
+
+var cityClick = function(event){
+    event.preventDefault();
+    citySearch();
+}
+
 
 $("#artistList").on("click", artistClick);
 $("#citybtn").on("click", cityClick);
