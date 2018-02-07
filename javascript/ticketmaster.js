@@ -64,7 +64,7 @@ var artistClick = function () {
                 dataType: "json",
                 success: function (response) {
                     console.log("success", response)
-                    for (var k = 0; k < 20; k++) {
+                    for (k in response._embedded.events) {
                         concertInfo = {
                             name: response._embedded.events[k].name,
                             date: response._embedded.events[k].dates.start.localDate,
