@@ -75,13 +75,16 @@
 }
 
   h3{
-    font-size: 20px;
+    font-size: 22px;
     font-weight: bold;
+    text-align: center;
 }
   #spotImg{
       height: 45px;
       width: 45px;
       float:right;
+      margin-right: 7px;
+      margin-top: 2px;
   }
 body{
     font-family: 'Encode Sans Expanded', sans-serif;
@@ -100,7 +103,6 @@ body{
     font-size: 25px;
 }
 
-
 .background {
     width: 100%;
     margin: 0 auto;
@@ -109,6 +111,7 @@ body{
 .artistBox, .concertBox{
     color: whitesmoke;
     position: relative;
+    float: center;
 }
 
 #concertList{
@@ -244,6 +247,7 @@ transform: scale(1.05, 1.05);
     background: linear-gradient(rgb(10, 16, 10),rgb(101,104,101), rgb(10, 16, 10));
     height: 750px;
 }
+
 .artistBox{
 background-color: rgb(10, 16, 10);
 text-align: center;
@@ -282,12 +286,18 @@ height: 750px;
 }
 
 #followButton, #citybtn, #clearButton{
-    border-radius: 40%;
-    backface-visibility: hidden;
- color: black;
+    /* border-radius: 43%; */
+    border: none;
+ color: whitesmoke;
+ background-color: rgb(10, 16, 10);
+}
+.form-control{
+    background-color: rgb(10, 16, 10);
+    color: whitesmoke;
 }
 #city, #followArtist{
-    border-radius: 5%;
+    border: none;
+
 }
 
 /*From w3 school website.... The Overlay (background) */
