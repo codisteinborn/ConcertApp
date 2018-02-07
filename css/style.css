@@ -135,7 +135,7 @@ body{
      padding-left: 0px;
      padding-right: 0px; 
      border: 2px solid #1DD069; 
-     box-shadow: 0 8px 6px rgb(65, 64, 64);
+     box-shadow: 2px 10px 6px rgb(65, 64, 64);
      transition: all 0.3s ease-in-out;
 } 
 
@@ -147,7 +147,7 @@ body{
     height: 100%;
     opacity: 0;
     border-radius: 5px;
-    box-shadow: 0 12px 15px  rgb(65, 64, 64);
+    box-shadow: 3px 12px 15px  rgb(32, 32, 32);
     transition: opacity 0.3s ease-in-out;
 }
 
@@ -188,7 +188,7 @@ transform: scale(1.05, 1.05);
     text-align: left;
     font-size: 16px;
     font-weight: bold;
-    color: black;
+    color: whitesmoke;
     margin-left: 5px;
 }
 .overlayConcertTextVenue{
