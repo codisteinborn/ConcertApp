@@ -11,7 +11,7 @@ if (localStorage.getItem("city")) {
     $("#city").val(city);
 }
 
-var cityClick = function () {
+var cityClick = function (event) {
     event.preventDefault();
 
     allConcerts = [];
@@ -19,7 +19,7 @@ var cityClick = function () {
     localStorage.setItem("city", city);
     for (var i = 0; i < artistArr.length; i++) {
         queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&city=" + city + "&sort=date,asc&startDateTime=" + searchTime + "&radius=30&apikey=aEo9tgraRerkwjEgT4qifF3P6rJBXxd7";
-        console.log("queryURL", queryURL);
+        console.log("cityClick queryURL", queryURL);
         $.ajax({
             url: queryURL,
             type: "GET",
@@ -49,15 +49,17 @@ var cityClick = function () {
     };
 };
 
-var artistClick = function () {
+var artistClick = function (event) {
+
+    event.preventDefault();
+
     if (city === "") {
-        event.preventDefault();
 
         allConcerts = [];
         for (var i = 0; i < artistArr.length; i++) {
             city = String($("#city").val());
             queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&sort=date,asc&startDateTime=" + searchTime + "&apikey=aEo9tgraRerkwjEgT4qifF3P6rJBXxd7";
-            console.log("queryURL", queryURL);
+            console.log("artistClick queryURL", queryURL);
             $.ajax({
                 url: queryURL,
                 type: "GET",
