@@ -165,7 +165,8 @@ transform: scale(1.05, 1.05);
     height: 100%;
     width: 100%;
     padding: 0;
-    clip-path: polygon(0 0, 100% 0, 100% 100%, 0 68%);
+    /* clip-path: polygon(0 0, 100% 0, 100% 100%, 0 68%); */
+    clip-path: polygon(100% 0, 100% 76%, 82% 100%, 67% 100%, 0 58%, 0 0);
 }
 
 .overlayConcertTextDate {
