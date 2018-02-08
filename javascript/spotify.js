@@ -93,9 +93,11 @@ if (last > 0) {
                         newArtist.name = response.artists.items[i].name;
                         newArtist.photo = response.artists.items[i].images[0].url;
                         followArray.push(newArtist);
-                    };
+                    }
                 };
+
                 followList();
+
                 function compare(a, b) {
                     if (a.name < b.name)
                         return -1;
@@ -220,6 +222,11 @@ if (last > 0) {
                             }
 
                             followArray.sort(compare);
+
+                            var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
+                            storedArtists.splice(artistArr.indexOf(artist), 1);
+                            localStorage.setItem("selectedArtistArray", JSON.stringify(storedArtists));
+                            artistArr.splice(artistArr.indexOf(artist), 1);
 
                             artistRender();
 
