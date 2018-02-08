@@ -28,7 +28,7 @@ var citySearch = function () {
                 if (response._embedded) {
                     for (k in response._embedded.events) {
                         concertInfo = {
-                            name: response._embedded.events[k].name,
+                            name: response._embedded.events[k]._embedded.attractions[0].name,
                             date: response._embedded.events[k].dates.start.localDate,
                             venue: response._embedded.events[k]._embedded.venues[0].name,
                             venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
@@ -74,7 +74,7 @@ var artistSearch = function () {
                     if (response._embedded) {
                         for (k in response._embedded.events) {
                             concertInfo = {
-                                name: response._embedded.events[k].name,
+                                name: response._embedded.events[k]._embedded.attractions[0].name,
                                 date: response._embedded.events[k].dates.start.localDate,
                                 venue: response._embedded.events[k]._embedded.venues[0].name,
                                 venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
@@ -82,7 +82,6 @@ var artistSearch = function () {
                                 image: response._embedded.events[k].images
                             }
                             allConcerts.push(concertInfo);
-                            console.log(concertInfo);
                         }
                         renderConcerts();
                     }
@@ -91,7 +90,6 @@ var artistSearch = function () {
                         errorDiv.addClass("concertError");
                         errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
                         $("#concertList").append(errorDiv);
-                       
                     }
                 },
                 error: function (response) {
