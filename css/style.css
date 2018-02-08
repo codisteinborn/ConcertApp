@@ -437,3 +437,11 @@ height: 750px;
 .artistError {
     font-style: italic;
 }
+.concertError {
+    padding-top: 20px;
+    text-align: center;
+    font-style: italic;
+    height: 20px;
+    width: 100%;
+    color: whitesmoke;
+}
