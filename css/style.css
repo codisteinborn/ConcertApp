@@ -52,26 +52,35 @@
 .overlayTitle { 
     position:absolute;
     z-index:12;
-    top:0%;
+    top:5%;
     left:0;
     width:100%;
     text-align:center;
-    color:#fff;
   }
 
  h1 {
-      font-size: 85px;
-      color: #DF294D;
+      font-size: 140px;
+      font-weight: bold;
+      color: #1DD069
       font-weight: bold;
     }
 
 #headImg{
-        height: 65px;
-        width: 65px;
+        height: 105px;
+        width: 105px;
+        margin: -50px;
     }
 
 .green {
     color: #1DD069;
+}
+
+.liveStyle {
+    color: #DF294D;
+    /* color: #F3636B */
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-style: italic;
 }
 
   h3{
