@@ -56,7 +56,7 @@ var artistRender = function () {
         }
     }
     else {
-        var errorDiv = $("<div");
+        var errorDiv = $("<div>");
         errorDiv.addClass("artistError");
         errorDiv.text("You don't follow any Artists! Type a name in the space above and click the magnifying glass icon to start.");
         $("#artistList").append(errorDiv);
