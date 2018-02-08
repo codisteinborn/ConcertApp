@@ -25,7 +25,6 @@ var citySearch = function () {
             dataType: "json",
             success: function (response) {
                 console.log("success", response)
-                console.log("artist", artistArr)
                 if (response._embedded) {
                     for (k in response._embedded.events) {
                         concertInfo = {
