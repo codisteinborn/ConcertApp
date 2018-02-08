@@ -235,23 +235,27 @@ transform: scale(1.05, 1.05);
     }
 }
 
-@media all and (max-width: 992px) {
-    .overlayConcertTextName, .overlayConcertTextVenue {
-        font-size: 85%;
-    }
-}
 
-@media all and (max-width: 768px) {
+@media all and (max-width: 856px) {
     .overlayConcertTextName, .overlayConcertTextVenue {
         font-size: 100%;
     }
 }
 
-@media all and (max-width: 570px) {
+/* @media all and (max-width: 570px) {
     .overlayConcertTextName, .overlayConcertTextVenue {
-        font-size: 85%;
+        font-size: 100%;
+    }
+} */
+
+
+@media all and (max-width: 856px) {
+    .concertDiv {
+        width: 80%;
     }
 }
+
+
 #clearButton {
     position: absolute;
     bottom: 5px;
