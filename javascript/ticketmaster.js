@@ -157,7 +157,12 @@ var renderConcerts = function () {
 
 var artistClick = function (event) {
     event.preventDefault();
-    artistSearch();
+    if (artistArr.length > 0){
+        artistSearch();
+    }
+    else {
+        $("#concertList").empty();
+    }
 }
 
 var cityClick = function (event) {
