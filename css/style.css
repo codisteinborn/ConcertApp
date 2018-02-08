@@ -149,6 +149,7 @@ body{
  .concertDiv{
      height: 300px;
      border-radius: 8%;
+     font-size: 18px;
      background: linear-gradient(to right, rgb(151, 154, 153), rgb(101, 103, 103));
      color: black;
      text-align: center;
@@ -200,7 +201,7 @@ transform: scale(1.05, 1.05);
     z-index: 12;
     top: 5%;
     right: 0px;
-    font-size: 18px;
+    font-size: 16px;
     font-weight: bold;
     background-color: #F3636B;
     color: white;
@@ -215,8 +216,6 @@ transform: scale(1.05, 1.05);
     color: #F3636B;
     border-radius: 2%;
     padding: 0px;
-
-
 }
 
 .overlayConcertTextName {
@@ -224,24 +223,42 @@ transform: scale(1.05, 1.05);
     z-index: 12;
     top: 65%;
     text-align: left;
-    font-size: 16px;
+    font-size: 100%;
     font-weight: bold;
     color: whitesmoke;
     margin-left: 5px;
     width: 50%;
 }
-.overlayConcertTextVenue{
+.overlayConcertTextVenue {
     position: absolute;
     z-index: 12;
-    top: 85%;
+    top: 78%;
     right: 0;
-    font-size: 16px;
+    font-size: 100%;
     font-weight: bold;
     color: #f8cf56;
     margin-right: 5px;
     width: 50%;
 }
 
+@media all and (max-width: 992px) {
+    .overlayConcertTextName, .overlayConcertTextVenue {
+        font-size: 85%;
+    }
+}
+
+@media all and (max-width: 768px) {
+    .overlayConcertTextName, .overlayConcertTextVenue {
+        font-size: 90%;
+    }
+}
+
+@media all and (max-width: 570px) {
+    .overlayConcertTextName, .overlayConcertTextVenue {
+        font-size: 70%;
+    }
+
+}
 
 
 #clearButton {
