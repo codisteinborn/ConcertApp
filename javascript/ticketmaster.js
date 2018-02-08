@@ -25,10 +25,11 @@ var citySearch = function () {
             dataType: "json",
             success: function (response) {
                 console.log("success", response)
+                console.log("artist", artistArr)
                 if (response._embedded) {
                     for (k in response._embedded.events) {
                         concertInfo = {
-                            name: response._embedded.events[k]._embedded.attractions[0].name,
+                            name: response._embedded.events[k].name,
                             date: response._embedded.events[k].dates.start.localDate,
                             venue: response._embedded.events[k]._embedded.venues[0].name,
                             venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
@@ -42,11 +43,12 @@ var citySearch = function () {
                     renderConcerts();
                 }
                 else {
-                    var errorDiv = $("<div>");
+                    if (allConcerts.length === 0) {
+                        var errorDiv = $("<div>");
                         errorDiv.addClass("concertError");
                         errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
                         $("#concertList").append(errorDiv);
-               
+                    }
                 }
             },
             error: function (response) {
@@ -74,7 +76,7 @@ var artistSearch = function () {
                     if (response._embedded) {
                         for (k in response._embedded.events) {
                             concertInfo = {
-                                name: response._embedded.events[k]._embedded.attractions[0].name,
+                                name: response._embedded.events[k].name,
                                 date: response._embedded.events[k].dates.start.localDate,
                                 venue: response._embedded.events[k]._embedded.venues[0].name,
                                 venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
@@ -86,10 +88,12 @@ var artistSearch = function () {
                         renderConcerts();
                     }
                     else {
-                        var errorDiv = $("<div>");
-                        errorDiv.addClass("concertError");
-                        errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
-                        $("#concertList").append(errorDiv);
+                        if (allConcerts.length === 0) {
+                            var errorDiv = $("<div>");
+                            errorDiv.addClass("concertError");
+                            errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
+                            $("#concertList").append(errorDiv);
+                        }
                     }
                 },
                 error: function (response) {
@@ -126,39 +130,39 @@ var renderConcerts = function () {
 
         $("#concertList").empty();
 
-            for (var j = 0; j < allConcerts.length; j++) {
-                var newAnchor = $("<div>");
-                newAnchor.addClass("col-md-6");
-                newAnchor.addClass("concertDiv");
-                var concertPicDiv = $("<div>");
-                concertPicDiv.addClass("concertPic");
-                concertPicDiv.css("background-image", "url('" + allConcerts[j].image[1].url + "')");
-                newAnchor.append(concertPicDiv);
-                var concertTextDate = $("<div>");
-                concertTextDate.addClass("overlayConcertTextDate");
-                var tmYear = allConcerts[j].date.substring(0, 4);
-                var tmMonth = allConcerts[j].date.substring(5, 7);
-                tmMonth = parseInt(tmMonth);
-                var months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
-                tmMonth = months[tmMonth - 1];
-                var tmDay = allConcerts[j].date.substring(8, 10);
-                newAnchor.append($(concertTextDate).append(tmMonth));
-                newAnchor.append($(concertTextDate).append("<p id='dayStyle'>" + tmDay + "</p>"));
-                var concertTextName = $("<p>");
-                concertTextName.addClass("overlayConcertTextName");
-                newAnchor.append($(concertTextName).text(allConcerts[j].name));
-                var concertTextVenue = $("<p>");
-                concertTextVenue.addClass("overlayConcertTextVenue");
-                newAnchor.append($(concertTextVenue).text(allConcerts[j].venue + ", " + allConcerts[j].venueCity));
-                newAnchor.attr("href", allConcerts[j].url);
-                newAnchor.on("click", function () {
-                    window.open($(this).attr("href"), '_blank');
-                });
-                $("#concertList").append(newAnchor);
-            };
-            rendering = false;
-
+        for (var j = 0; j < allConcerts.length; j++) {
+            var newAnchor = $("<div>");
+            newAnchor.addClass("col-md-6");
+            newAnchor.addClass("concertDiv");
+            var concertPicDiv = $("<div>");
+            concertPicDiv.addClass("concertPic");
+            concertPicDiv.css("background-image", "url('" + allConcerts[j].image[1].url + "')");
+            newAnchor.append(concertPicDiv);
+            var concertTextDate = $("<div>");
+            concertTextDate.addClass("overlayConcertTextDate");
+            var tmYear = allConcerts[j].date.substring(0, 4);
+            var tmMonth = allConcerts[j].date.substring(5, 7);
+            tmMonth = parseInt(tmMonth);
+            var months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            tmMonth = months[tmMonth - 1];
+            var tmDay = allConcerts[j].date.substring(8, 10);
+            newAnchor.append($(concertTextDate).append(tmMonth));
+            newAnchor.append($(concertTextDate).append("<p id='dayStyle'>" + tmDay + "</p>"));
+            var concertTextName = $("<p>");
+            concertTextName.addClass("overlayConcertTextName");
+            newAnchor.append($(concertTextName).text(allConcerts[j].name));
+            var concertTextVenue = $("<p>");
+            concertTextVenue.addClass("overlayConcertTextVenue");
+            newAnchor.append($(concertTextVenue).text(allConcerts[j].venue + ", " + allConcerts[j].venueCity));
+            newAnchor.attr("href", allConcerts[j].url);
+            newAnchor.on("click", function () {
+                window.open($(this).attr("href"), '_blank');
+            });
+            $("#concertList").append(newAnchor);
         };
+        rendering = false;
+
+    };
 
 };
 var artistClick = function (event) {
