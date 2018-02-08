@@ -371,3 +371,7 @@ height: 750px;
     right: 45px;
     font-size: 60px;
 }
+
+.artistError {
+    font-style: italic;
+}

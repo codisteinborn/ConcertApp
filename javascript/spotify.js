@@ -15,7 +15,8 @@ var token = tokenURL.substring(first, last);
 
 var artistRender = function () {
     $("#artistList").empty();
-    for (i = 0; i < followArray.length; i++) {
+    if (followArray.length > 0){
+        for (i = 0; i < followArray.length; i++) {
         var newDiv = $("<div>");
         newDiv.addClass("artistDiv");
         newDiv.attr("data-artist", followArray[i].name);
@@ -52,12 +53,21 @@ var artistRender = function () {
             }
         });
         $("#artistList").append(newDiv);
+        }
+    }
+    else {
+        var errorDiv = $("<div");
+        errorDiv.addClass("artistError");
+        errorDiv.text("You don't follow any Artists! Type a name in the space above and click the magnifying glass icon to start.");
+        $("#artistList").append(errorDiv);
     }
     if (localStorage.getItem("selectedArtistArray")) {
         var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
         for (j = 0; j < storedArtists.length; j++) {
-            artistArr.push(storedArtists[j]);
-            $("div[data-artist='" + storedArtists[j] + "']").addClass("selectedArtist");
+            if (artistArr.indexOf(storedArtists[j] < 0)){
+                artistArr.push(storedArtists[j]);
+                $("div[data-artist='" + storedArtists[j] + "']").addClass("selectedArtist");
+            }
         }
         artistSearch();
     }
@@ -73,6 +83,7 @@ if (last > 0) {
         success: function (response) {
 
             var followList = function () {
+                followArray = [];
                 for (i = 0; i < response.artists.items.length; i++) {
                     var newArtist = {
                         name: "",
@@ -93,6 +104,9 @@ if (last > 0) {
             }
             followArray.sort(compare);
             artistRender();
+        },
+        error: function(response){
+            console.log("couldn't get follow list (1) error response", response);
         }
     });
 
@@ -105,12 +119,8 @@ if (last > 0) {
         var last = URLArray.indexOf("&");
         var token = tokenURL.substring(first, last);
         var spotifyID = "";
-        var artist = {
-            name: localStorage.getItem("follow"),
-            photo: ""
-        }
-
-        followArray.push(artist);
+        var artist = localStorage.getItem("follow");
+        localStorage.removeItem("follow");
 
         $.ajax({
             url: 'https://api.spotify.com/v1/search?q=' + artist + '&type=artist',
@@ -118,7 +128,7 @@ if (last > 0) {
                 'Authorization': 'Bearer ' + token
             },
 
-            success: function (response) {
+            success: function(response){
                 spotifyID = response.artists.items[0].id;
 
                 $.ajax({
@@ -130,12 +140,51 @@ if (last > 0) {
 
                     success: function (response) {
 
-                        localStorage.removeItem("follow");
+                        $.ajax({
+                            url: 'https://api.spotify.com/v1/me/following?type=artist&limit=50',
+                            headers: {
+                                'Authorization': 'Bearer ' + token
+                            },
+                    
+                            success: function(response){
+                    
+                                var followList = function () {
+                                    followArray = [];
+                                    for (i = 0; i < response.artists.items.length; i++) {
+                                        var newArtist = {
+                                            name: "",
+                                            photo: ""
+                                        };
+                                        newArtist.name = response.artists.items[i].name;
+                                        newArtist.photo = response.artists.items[i].images[0].url;
+                                        followArray.push(newArtist);
+                                    };
+                                };
+                                followList();
+                                function compare(a, b) {
+                                    if (a.name < b.name)
+                                        return -1;
+                                    if (a.name > b.name)
+                                        return 1;
+                                    return 0;
+                                }
+                                followArray.sort(compare);
 
-                        artistRender();
+                                artistRender();
 
+                            },
+                            error: function(response){
+                                console.log("got ID, followed artist, couldn't get follow list (2) error", response);
+                            }
+                        });
+                    },
+                    error: function(response){
+                        console.log("got ID, couldn't follow artist error", response);
                     }
                 });
+            },
+            error: function(response){
+                console.log("tried to follow artist couldn't get spotifyID error", response);
             }
         });
     };
