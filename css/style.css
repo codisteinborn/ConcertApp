@@ -3,13 +3,14 @@
 }
 
 .carousel-inner {
-    height: 300px;
+    height: 250px;
 }
 
 .jumbotron{
     width: 100%;
     color: rgb(6, 0, 0);
-    height: 300px;
+    height: 250px;
+    font-size: 125px;
 }
 
 #carouselImage1 {
@@ -49,33 +50,53 @@
     bottom: 0px;
 }
 
-.overlayTitle { 
+.overlayTitleWrapper { 
     position:absolute;
     z-index:12;
-    top:0%;
+    top: 0;
     left:0;
     width:100%;
     text-align:center;
-    color:#fff;
   }
 
- h1 {
-      font-size: 95px;
-      color: #DF294D;
-      font-weight: bold;
-      font-family: 'Righteous', cursive;
-    }
-
-#headImg{
-        height: 65px;
-        width: 65px;
-    }
-
-.green {
-    color: #1DD069;
+#overlayTitleBox {
+    width: 70%;
+    height: 25%;
+    position: fixed;
+    left: 15%;
+    top: 0%;
+    overflow: scroll;
 }
 
-  h3{
+ h1 {
+     font-size: 700%;
+      font-weight: bold;
+      color: #1DD069;
+    }
+
+#liveStyle {
+    color: #DF294D;
+    /* color: #F3636B */
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+    font-style: italic;
+}
+
+
+@media all and (max-width: 768px) {
+    h1 {
+        font-size: 500%;
+    }
+}
+
+@media all and (max-width: 500px) {
+    h1 {
+        font-size: 400%;
+    }
+}
+
+  h3
+  { 
     font-size: 22px;
     font-weight: bold;
     text-align: center;
@@ -201,7 +222,7 @@ transform: scale(1.05, 1.05);
 .overlayConcertTextName {
     position: absolute;
     z-index: 12;
-    top: 75%;
+    top: 65%;
     text-align: left;
     font-size: 16px;
     font-weight: bold;
@@ -212,12 +233,13 @@ transform: scale(1.05, 1.05);
 .overlayConcertTextVenue{
     position: absolute;
     z-index: 12;
-    top: 90%;
+    top: 85%;
     right: 0;
     font-size: 16px;
     font-weight: bold;
     color: #f8cf56;
     margin-right: 5px;
+    width: 50%;
 }
 
 
