@@ -64,8 +64,10 @@ var artistRender = function () {
     if (localStorage.getItem("selectedArtistArray")) {
         var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
         for (j = 0; j < storedArtists.length; j++) {
-            artistArr.push(storedArtists[j]);
-            $("div[data-artist='" + storedArtists[j] + "']").addClass("selectedArtist");
+            if (artistArr.indexOf(storedArtists[j] < 0)){
+                artistArr.push(storedArtists[j]);
+                $("div[data-artist='" + storedArtists[j] + "']").addClass("selectedArtist");
+            }
         }
         artistSearch();
     }
@@ -118,6 +120,7 @@ if (last > 0) {
         var token = tokenURL.substring(first, last);
         var spotifyID = "";
         var artist = localStorage.getItem("follow");
+        localStorage.removeItem("follow");
 
         $.ajax({
             url: 'https://api.spotify.com/v1/search?q=' + artist + '&type=artist',
@@ -166,10 +169,9 @@ if (last > 0) {
                                     return 0;
                                 }
                                 followArray.sort(compare);
-                                
+
                                 artistRender();
 
-                                localStorage.removeItem("follow");
                             },
                             error: function(response){
                                 console.log("got ID, followed artist, couldn't get follow list (2) error", response);
