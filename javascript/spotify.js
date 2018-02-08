@@ -130,7 +130,7 @@ if (last > 0) {
             },
 
             success: function (response) {
-                if (response.artists.items[0].id) {
+                if (response.artists.items[0]) {
                     spotifyID = response.artists.items[0].id;
 
                     $.ajax({
