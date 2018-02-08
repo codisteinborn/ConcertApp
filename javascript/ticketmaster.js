@@ -46,7 +46,7 @@ var citySearch = function () {
                         errorDiv.addClass("concertError");
                         errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
                         $("#concertList").append(errorDiv);
-                    // renderConcerts();
+               
                 }
             },
             error: function (response) {
@@ -91,7 +91,7 @@ var artistSearch = function () {
                         errorDiv.addClass("concertError");
                         errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
                         $("#concertList").append(errorDiv);
-                        // renderConcerts();
+                       
                     }
                 },
                 error: function (response) {
@@ -127,7 +127,7 @@ var renderConcerts = function () {
         };
 
         $("#concertList").empty();
-        // if (allConcerts.length > 0) {
+
             for (var j = 0; j < allConcerts.length; j++) {
                 var newAnchor = $("<div>");
                 newAnchor.addClass("col-md-6");
@@ -159,13 +159,9 @@ var renderConcerts = function () {
                 $("#concertList").append(newAnchor);
             };
             rendering = false;
-        // } else {
-            // var errorDiv = $("<div>");
-            // errorDiv.addClass("concertError");
-            // errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
-            // $("#concertList").append(errorDiv);
+
         };
-    // };
+
 };
 var artistClick = function (event) {
     event.preventDefault();
