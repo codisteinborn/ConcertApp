@@ -42,11 +42,12 @@ var citySearch = function () {
                     renderConcerts();
                 }
                 else {
-                    var errorDiv = $("<div>");
+                    if (allConcerts.length === 0) {
+                        var errorDiv = $("<div>");
                         errorDiv.addClass("concertError");
                         errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
                         $("#concertList").append(errorDiv);
-               
+                    }
                 }
             },
             error: function (response) {
@@ -82,16 +83,16 @@ var artistSearch = function () {
                                 image: response._embedded.events[k].images
                             }
                             allConcerts.push(concertInfo);
-                            console.log(concertInfo);
                         }
                         renderConcerts();
                     }
                     else {
-                        var errorDiv = $("<div>");
-                        errorDiv.addClass("concertError");
-                        errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
-                        $("#concertList").append(errorDiv);
-                       
+                        if (allConcerts.length === 0) {
+                            var errorDiv = $("<div>");
+                            errorDiv.addClass("concertError");
+                            errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
+                            $("#concertList").append(errorDiv);
+                        }
                     }
                 },
                 error: function (response) {
@@ -128,39 +129,39 @@ var renderConcerts = function () {
 
         $("#concertList").empty();
 
-            for (var j = 0; j < allConcerts.length; j++) {
-                var newAnchor = $("<div>");
-                newAnchor.addClass("col-md-6");
-                newAnchor.addClass("concertDiv");
-                var concertPicDiv = $("<div>");
-                concertPicDiv.addClass("concertPic");
-                concertPicDiv.css("background-image", "url('" + allConcerts[j].image[1].url + "')");
-                newAnchor.append(concertPicDiv);
-                var concertTextDate = $("<div>");
-                concertTextDate.addClass("overlayConcertTextDate");
-                var tmYear = allConcerts[j].date.substring(0, 4);
-                var tmMonth = allConcerts[j].date.substring(5, 7);
-                tmMonth = parseInt(tmMonth);
-                var months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
-                tmMonth = months[tmMonth - 1];
-                var tmDay = allConcerts[j].date.substring(8, 10);
-                newAnchor.append($(concertTextDate).append(tmMonth));
-                newAnchor.append($(concertTextDate).append("<p id='dayStyle'>" + tmDay + "</p>"));
-                var concertTextName = $("<p>");
-                concertTextName.addClass("overlayConcertTextName");
-                newAnchor.append($(concertTextName).text(allConcerts[j].name));
-                var concertTextVenue = $("<p>");
-                concertTextVenue.addClass("overlayConcertTextVenue");
-                newAnchor.append($(concertTextVenue).text(allConcerts[j].venue + ", " + allConcerts[j].venueCity));
-                newAnchor.attr("href", allConcerts[j].url);
-                newAnchor.on("click", function () {
-                    window.open($(this).attr("href"), '_blank');
-                });
-                $("#concertList").append(newAnchor);
-            };
-            rendering = false;
-
+        for (var j = 0; j < allConcerts.length; j++) {
+            var newAnchor = $("<div>");
+            newAnchor.addClass("col-md-6");
+            newAnchor.addClass("concertDiv");
+            var concertPicDiv = $("<div>");
+            concertPicDiv.addClass("concertPic");
+            concertPicDiv.css("background-image", "url('" + allConcerts[j].image[1].url + "')");
+            newAnchor.append(concertPicDiv);
+            var concertTextDate = $("<div>");
+            concertTextDate.addClass("overlayConcertTextDate");
+            var tmYear = allConcerts[j].date.substring(0, 4);
+            var tmMonth = allConcerts[j].date.substring(5, 7);
+            tmMonth = parseInt(tmMonth);
+            var months = ["Jan", "Feb", "Mar", "Apr", "May", "June", "July", "Aug", "Sep", "Oct", "Nov", "Dec"];
+            tmMonth = months[tmMonth - 1];
+            var tmDay = allConcerts[j].date.substring(8, 10);
+            newAnchor.append($(concertTextDate).append(tmMonth));
+            newAnchor.append($(concertTextDate).append("<p id='dayStyle'>" + tmDay + "</p>"));
+            var concertTextName = $("<p>");
+            concertTextName.addClass("overlayConcertTextName");
+            newAnchor.append($(concertTextName).text(allConcerts[j].name));
+            var concertTextVenue = $("<p>");
+            concertTextVenue.addClass("overlayConcertTextVenue");
+            newAnchor.append($(concertTextVenue).text(allConcerts[j].venue + ", " + allConcerts[j].venueCity));
+            newAnchor.attr("href", allConcerts[j].url);
+            newAnchor.on("click", function () {
+                window.open($(this).attr("href"), '_blank');
+            });
+            $("#concertList").append(newAnchor);
         };
+        rendering = false;
+
+    };
 
 };
 var artistClick = function (event) {
