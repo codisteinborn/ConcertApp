@@ -1,16 +1,15 @@
- .anchor {
+.anchor {
     padding: 0;
 }
 
 .carousel-inner {
-    height: 250px;
+    height: 600px;
 }
 
 .jumbotron{
     width: 100%;
     color: rgb(6, 0, 0);
-    height: 250px;
-    font-size: 125px;
+    height: 600px;
 }
 
 #carouselImage1 {
@@ -69,32 +68,22 @@
 }
 
  h1 {
-     font-size: 700%;
+      font-size: 700%;
       font-weight: bold;
       color: #1DD069;
     }
 
-#liveStyle {
-    color: #DF294D;
-    /* color: #F3636B */
-    font-family: 'Open Sans', sans-serif;
-    font-weight: bold;
-    font-style: italic;
-}
 
-
-@media all and (max-width: 768px) {
+@media all and (max-width: 880px) {
     h1 {
         font-size: 500%;
+        }
     }
-}
-
-@media all and (max-width: 500px) {
+    
+@media all and (max-width: 600px) {
     h1 {
-        font-size: 400%;
-    }
-}
-
+        font-size: 300%;
+        }
   h3
   { 
     font-size: 22px;
@@ -247,20 +236,23 @@ transform: scale(1.05, 1.05);
     }
 }
 
+@media all and (max-width: 992px) {
+    .overlayConcertTextName, .overlayConcertTextVenue {
+        font-size: 85%;
+    }
+}
+
 @media all and (max-width: 768px) {
     .overlayConcertTextName, .overlayConcertTextVenue {
-        font-size: 90%;
+        font-size: 100%;
     }
 }
 
 @media all and (max-width: 570px) {
     .overlayConcertTextName, .overlayConcertTextVenue {
-        font-size: 70%;
+        font-size: 85%;
     }
-
 }
-
-
 #clearButton {
     position: absolute;
     bottom: 5px;
@@ -280,9 +272,7 @@ transform: scale(1.05, 1.05);
     text-align: center;
     margin-top: 5px;
 }
-.modal-title{
-    font-size: 25px;
-}
+
 .concertBox{
     background: linear-gradient(rgb(10, 16, 10),rgb(101,104,101), rgb(10, 16, 10));
     height: 750px;
@@ -326,7 +316,6 @@ height: 750px;
 }
 
 #followButton, #citybtn, #clearButton{
-    /* border-radius: 43%; */
     border: none;
  color: whitesmoke;
  background-color: rgb(10, 16, 10);
@@ -337,47 +326,47 @@ height: 750px;
 }
 #city, #followArtist{
     border: none;
-
+}
+#navColor{
+    background-color: #1DD069;
+    opacity: .455;
+    z-index: 200;
+    height: 100%;
+    width: 100%;
+    position: absolute;
 }
 
-/*From w3 school website.... The Overlay (background) */
+/*From w3 school website.... */
 .overlayNav {  
     height: 100%;
     width: 100%;
     position: fixed;
+    overflow: hidden;
     z-index: 100;
     left: 0;
     top: 0;
-    /* background-color: rgba(0, 0, 0, 0.85); */
     background-image: url("concert.jpg");
     background-size: cover;
-    opacity: .9;
-    overflow-x: hidden;
-    /* transition: 1s;  second transition effect to slide in or slide down the overlay (height or width, depending on reveal) */
 }
 /* Position the content inside the overlay */
 .overlay-NavContent {
     position: relative;
-    top: 25%; /* 25% from the top*/
-    width: 40%; /* 100% width */
+    top: 25%;
+    width: 40%;
     left: 30%;
-    text-align: center; /* Centered text/links */
-    margin-top: 30px; /* 30px top margin to avoid conflict with the close button on smaller screens */
-}
-
-/* The navigation links inside the overlay */
-.overlay-NavContent {
+    text-align: center;
+    margin-top: 30px;
     padding: 8px;
     font-weight: bold;
-    font-size: 36px;
-    color: #a2a2a2;
-    display: block; /* Display block instead of inline */
-    transition: 0.2s; /* Transition effects on hover (color) */
+    font-size: 15px;
+    display: block;
+    transition: 0.2s;
+    z-index: 500;
+    color: #F3636B;
 }
 
-/* When you mouse over the navigation links, change their color */
 .overlayNav button:hover, .overlayNav button:focus {
-    background-color: #9deb7be2;
+    background-color: #F3636B;
     color: black;
 }
 
@@ -386,9 +375,66 @@ height: 750px;
     position: absolute;
     top: 20px;
     right: 45px;
-    font-size: 60px;
+    font-size: 35px;
+    z-index: 500;
 }
 
+.separator-type, .title-type, .intro-type, .content-type .intro-type p {
+    position: relative;
+}
+.intro-type .container {
+    padding: 107px 0px 102px 0px !important;
+}
+.company-heading h1 {
+    margin-bottom: 60px;
+    padding-bottom: 50px;
+    line-height: 80px;
+    font-weight: bold;
+    text-align: center;
+    position: relative;
+    /* font-size: 105px; */
+}
+.seo-header, .product-header, .intro-type .container h1.white, .company-heading h1 {
+  
+    margin-bottom: 20px;
+    color: #1DD069;
+    height: 325px;
+}
+.parallax {
+    background-attachment: inherit !important;
+}
+.parallax {
+    background-attachment: inherit !important;
+}
+.parallax {
+    background-attachment: inherit !important;
+    background-repeat: repeat;
+    background-size: cover;
+    position: absolute;
+    top: 0px;
+    bottom: 0px;
+    width: 100%;
+    z-index: -10;
+}
+.ct-btn-scroll {
+    width: 49px;
+    height: 49px;
+    position: absolute;
+    bottom: 30px;
+    left: 0;
+    right: 0;
+    margin: auto;
+    margin-top: 500px;
+    z-index: 9;
+    border-radius: 50%;
+    -webkit-transition: background-color 0.3s ease-in-out;
+    transition: background-color 0.3s ease-in-out;
+}
+#scrollImg {
+    max-width: 100%;
+    background-color: #1DD069;
+    border-radius: 50%;
+}
 .artistError {
     font-style: italic;
 }
