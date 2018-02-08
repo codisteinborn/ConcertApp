@@ -137,8 +137,6 @@ if (last > 0) {
 
                     success: function (response) {
 
-                        localStorage.removeItem("follow");
-
                         $.ajax({
                             url: 'https://api.spotify.com/v1/me/following?type=artist&limit=50',
                             headers: {
@@ -168,7 +166,10 @@ if (last > 0) {
                                     return 0;
                                 }
                                 followArray.sort(compare);
+                                
                                 artistRender();
+
+                                localStorage.removeItem("follow");
                             },
                             error: function(response){
                                 console.log("got ID, followed artist, couldn't get follow list (2) error", response);
