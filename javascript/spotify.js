@@ -64,7 +64,7 @@ var artistRender = function () {
     if (localStorage.getItem("selectedArtistArray")) {
         var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
         for (j = 0; j < storedArtists.length; j++) {
-            if (artistArr.indexOf(storedArtists[j] < 0)){
+            if (artistArr.indexOf(storedArtists[j]) < 0){
                 artistArr.push(storedArtists[j]);
                 $("div[data-artist='" + storedArtists[j] + "']").addClass("selectedArtist");
             }
