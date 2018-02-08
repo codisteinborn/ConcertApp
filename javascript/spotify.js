@@ -15,7 +15,8 @@ var token = tokenURL.substring(first, last);
 
 var artistRender = function () {
     $("#artistList").empty();
-    for (i = 0; i < followArray.length; i++) {
+    if (followArray.length > 0){
+        for (i = 0; i < followArray.length; i++) {
         var newDiv = $("<div>");
         newDiv.addClass("artistDiv");
         newDiv.attr("data-artist", followArray[i].name);
@@ -52,6 +53,13 @@ var artistRender = function () {
             }
         });
         $("#artistList").append(newDiv);
+        }
+    }
+    else {
+        var errorDiv = $("<div");
+        errorDiv.addClass("artistError");
+        errorDiv.text("You don't follow any Artists! Type a name in the space above and click the magnifying glass icon to start.");
+        $("#artistList").append(errorDiv);
     }
     if (localStorage.getItem("selectedArtistArray")) {
         var storedArtists = JSON.parse(localStorage.getItem("selectedArtistArray"));
@@ -73,6 +81,7 @@ if (last > 0) {
         success: function (response) {
 
             var followList = function () {
+                followArray = [];
                 for (i = 0; i < response.artists.items.length; i++) {
                     var newArtist = {
                         name: "",
@@ -139,6 +148,7 @@ if (last > 0) {
                             success: function(response){
                     
                                 var followList = function () {
+                                    followArray = [];
                                     for (i = 0; i < response.artists.items.length; i++) {
                                         var newArtist = {
                                             name: "",
