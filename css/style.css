@@ -60,9 +60,10 @@
   }
 
  h1 {
-      font-size: 85px;
+      font-size: 95px;
       color: #DF294D;
       font-weight: bold;
+      font-family: 'Righteous', cursive;
     }
 
 #headImg{
