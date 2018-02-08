@@ -28,7 +28,7 @@ var citySearch = function () {
                 if (response._embedded) {
                     for (k in response._embedded.events) {
                         concertInfo = {
-                            name: response._embedded.events[k].name,
+                            name: response._embedded.events[k]._embedded.attractions[0].name,
                             date: response._embedded.events[k].dates.start.localDate,
                             venue: response._embedded.events[k]._embedded.venues[0].name,
                             venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
@@ -74,7 +74,7 @@ var artistSearch = function () {
                     if (response._embedded) {
                         for (k in response._embedded.events) {
                             concertInfo = {
-                                name: response._embedded.events[k].name,
+                                name: response._embedded.events[k]._embedded.attractions[k].name,
                                 date: response._embedded.events[k].dates.start.localDate,
                                 venue: response._embedded.events[k]._embedded.venues[0].name,
                                 venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
