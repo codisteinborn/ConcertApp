@@ -74,43 +74,44 @@ var artistRender = function () {
 }
 
 if (last > 0) {
-    $.ajax({
-        url: 'https://api.spotify.com/v1/me/following?type=artist&limit=50',
-        headers: {
-            'Authorization': 'Bearer ' + token
-        },
+    if (!localStorage.getItem("follow")){
+        $.ajax({
+            url: 'https://api.spotify.com/v1/me/following?type=artist&limit=50',
+            headers: {
+                'Authorization': 'Bearer ' + token
+            },
 
-        success: function (response) {
+            success: function (response) {
 
-            var followList = function () {
-                followArray = [];
-                for (i = 0; i < response.artists.items.length; i++) {
-                    var newArtist = {
-                        name: "",
-                        photo: ""
+                var followList = function () {
+                    followArray = [];
+                    for (i = 0; i < response.artists.items.length; i++) {
+                        var newArtist = {
+                            name: "",
+                            photo: ""
+                        };
+                        newArtist.name = response.artists.items[i].name;
+                        newArtist.photo = response.artists.items[i].images[0].url;
+                        followArray.push(newArtist);
                     };
-                    newArtist.name = response.artists.items[i].name;
-                    newArtist.photo = response.artists.items[i].images[0].url;
-                    followArray.push(newArtist);
                 };
-            };
-            followList();
-            function compare(a, b) {
-                if (a.name < b.name)
-                    return -1;
-                if (a.name > b.name)
-                    return 1;
-                return 0;
+                followList();
+                function compare(a, b) {
+                    if (a.name < b.name)
+                        return -1;
+                    if (a.name > b.name)
+                        return 1;
+                    return 0;
+                }
+                followArray.sort(compare);
+                artistRender();
+            },
+            error: function(response){
+                console.log("couldn't get follow list (1) error response", response);
             }
-            followArray.sort(compare);
-            artistRender();
-        },
-        error: function(response){
-            console.log("couldn't get follow list (1) error response", response);
-        }
-    });
-
-    if (localStorage.getItem("follow")) {
+        });
+    }
+    else {
 
         tokenURL = window.location.href;
 
