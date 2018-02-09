@@ -24,7 +24,7 @@ var citySearch = function () {
             type: "GET",
             dataType: "json",
             success: function (response) {
-                console.log("success", response)
+                console.log("success", response);
                 if (response._embedded) {
                     for (k in response._embedded.events) {
                         concertInfo = {
@@ -43,10 +43,12 @@ var citySearch = function () {
                 }
                 else {
                     if (allConcerts.length === 0) {
-                        var errorDiv = $("<div>");
-                        errorDiv.addClass("concertError");
-                        errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
-                        $("#concertList").append(errorDiv);
+                        if ($(".concertError").length < 1){
+                            var errorDiv = $("<div>");
+                            errorDiv.addClass("concertError");
+                            errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
+                            $("#concertList").append(errorDiv);
+                        }
                     }
                 }
             },
@@ -88,10 +90,12 @@ var artistSearch = function () {
                     }
                     else {
                         if (allConcerts.length === 0) {
-                            var errorDiv = $("<div>");
-                            errorDiv.addClass("concertError");
-                            errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
-                            $("#concertList").append(errorDiv);
+                            if ($(".concertError").length < 1){
+                                var errorDiv = $("<div>");
+                                errorDiv.addClass("concertError");
+                                errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
+                                $("#concertList").append(errorDiv);
+                            }
                         }
                     }
                 },
@@ -100,7 +104,7 @@ var artistSearch = function () {
                     return response;
                 }
             });
-        };
+        }
     }
     else {
         citySearch();
