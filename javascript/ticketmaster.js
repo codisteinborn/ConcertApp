@@ -43,7 +43,16 @@ var citySearch = function () {
                 }
                 else {
                     if (allConcerts.length === 0) {
-                        if ($(".concertError").length < 1){
+                        if ($(".concertError").length === 0 && $(".concertDiv").length === 0){
+                            console.log("first error");
+                            var errorDiv = $("<div>");
+                            errorDiv.addClass("concertError");
+                            errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
+                            $("#concertList").append(errorDiv);
+                        }
+                        else if ($(".concertError").length === 0 && $(".concertDiv").length > 0){
+                            console.log("second error");
+                            $("#concertList").empty();
                             var errorDiv = $("<div>");
                             errorDiv.addClass("concertError");
                             errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
@@ -90,7 +99,16 @@ var artistSearch = function () {
                     }
                     else {
                         if (allConcerts.length === 0) {
-                            if ($(".concertError").length < 1){
+                            if ($(".concertError").length === 0 && $(".concertDiv").length === 0){
+                                console.log("first error");
+                                var errorDiv = $("<div>");
+                                errorDiv.addClass("concertError");
+                                errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
+                                $("#concertList").append(errorDiv);
+                            }
+                            else if ($(".concertError").length === 0 && $(".concertDiv").length > 0){
+                                console.log("second error");
+                                $("#concertList").empty();
                                 var errorDiv = $("<div>");
                                 errorDiv.addClass("concertError");
                                 errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
