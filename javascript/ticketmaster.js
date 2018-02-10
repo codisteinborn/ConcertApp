@@ -35,6 +35,7 @@ var citySearch = function () {
                             image: response._embedded.events[k].images
                         }
                         allConcerts.push(concertInfo);
+                        console.log("city", allConcerts);
                     }
                     renderConcerts();
                 }
@@ -66,10 +67,10 @@ var citySearch = function () {
 
 var artistSearch = function () {
 
-    if (city === "") {
+    if (userCity === "") {
         allConcerts = [];
         for (let i = 0; i < artistArr.length; i++) {
-            city = String($("#city").val());
+            // userCity = String($("#city").val());
             queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&sort=date,asc&startDateTime=" + searchTime + "&apikey=aEo9tgraRerkwjEgT4qifF3P6rJBXxd7";
             $.ajax({
                 url: queryURL,
@@ -87,6 +88,7 @@ var artistSearch = function () {
                                 image: response._embedded.events[k].images
                             }
                             allConcerts.push(concertInfo);
+                            console.log("no city", allConcerts);
                         }
                         renderConcerts();
                     }
