@@ -1,6 +1,6 @@
 # SpotYourShow
     
-    https://codisteinborn.github.io/ConcertApp/
+    <https://codisteinborn.github.io/ConcertApp/>
     Version 1.0
     Original Deployment Date - February 16, 2018
     
@@ -15,11 +15,11 @@
 
     Software Installation - SpotYourShow does not reqire any software installation to operate.
     
-    Prerequisites - An account with Spotify (https://www.spotify.com/us/). If you do not have a Spotify account, you will be given the opportunity to sign up for one during the SpotYourShow login process. 
+    Prerequisites - An account with Spotify ( <https://www.spotify.com/us/> ). If you do not have a Spotify account, you will be given the opportunity to sign up for one during the SpotYourShow login process. 
 
 # Users Guide:
 
-    Application Link - https://codisteinborn.github.io/ConcertApp/
+    Application Link - <https://codisteinborn.github.io/ConcertApp/>
 
     Instructions - 
 
@@ -73,17 +73,17 @@
                 
 # Built Utilizing:
 
-    Bootstrap v3 - http://getbootstrap.com/docs/3.3/
-    Moment.js - https://momentjs.com/
-    Spotify API - https://developer.spotify.com/web-api/
-    Ticketmaster Developer API - https://developer.ticketmaster.com/
+    Bootstrap v3 - <http://getbootstrap.com/docs/3.3/>
+    Moment.js - <https://momentjs.com/>
+    Spotify API - <https://developer.spotify.com/web-api/>
+    Ticketmaster Developer API - <https://developer.ticketmaster.com/>
 
 
 # Original Contributors:
 
-    Joe Fitzgerald - https://github.com/joefitz12 
-    Cody Steinborn  - https://github.com/codisteinborn/
-    Susan Lippa - https://github.com/slippa91 
+    Joe Fitzgerald - <https://github.com/joefitz12> 
+    Cody Steinborn  - <https://github.com/codisteinborn/>
+    Susan Lippa - <https://github.com/slippa91>
 
 
 
