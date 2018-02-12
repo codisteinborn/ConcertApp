@@ -145,7 +145,7 @@ body{
      line-height: 1.2;
      float: left;
      width: 43%;
-     margin-left: 40px;
+     margin-left: 5%;
      margin-top: 20px;
      padding-left: 0px;
      padding-right: 0px; 
@@ -233,11 +233,9 @@ body{
     }
 }
 
-
-
 @media all and (max-width: 750px) {
     .concertDiv {
-        width: 95%;
+        width: 90%;
     }
 }
 

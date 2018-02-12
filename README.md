@@ -80,10 +80,10 @@ Ticketmaster Developer API - <https://developer.ticketmaster.com/>
 
 # Original Contributors:
 
-Joe Fitzgerald - <https://github.com/joefitz12> \
+
+Joe Fitzpatrick - <https://github.com/joefitz12> \
 Codi Steinborn  - <https://github.com/codisteinborn/> \
 Susan Lippa - <https://github.com/slippa91>
-
 
 
 # Ideas for Improvement:
