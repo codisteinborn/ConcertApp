@@ -1,3 +1,13 @@
+/**
+ * Defines Global Variables
+ * @param {string} userCity - user entered city
+ * @param {string} queryURL - url for ajax call
+ * @param {object} concertInfo - object to hold information about an upcoming concert
+ * @param {array} allConcerts - array that holds objects with individual concert information in them
+ * @param {string} time - fetches current time from movement.js
+ * @param {string}searchTime - formats current time to work with ajax call
+ * @param {boolean} rendering - boolean to signify whether information is rendering or not
+ */
 var userCity = "";
 var queryURL = "";
 var concertInfo = {};
@@ -9,12 +19,13 @@ var rendering = false;
 if (localStorage.getItem("city")) {
     userCity = localStorage.getItem("city");
     $("#city").val(userCity);
-} ``
+}
 
 /**
- * Runs our ajax call to Ticketmaster API and gives us back information about the concert(s) of the selected artist(s). Also runs our renderConcerts function.
+ * Runs our ajax call to Ticketmaster API and gives us back information about the concert(s) of the selected artist(s). Also calls our renderConcerts function.
+ * @param {array} artistArr - array of artist names selected from Spotify follow list
  * 
- * @returns {object} concert information
+ * @returns {array} allConcerts - array of objects containing concert information
  */
 var searchFun = function () {
     event.preventDefault();
@@ -22,7 +33,6 @@ var searchFun = function () {
         allConcerts = [];
         userCity = String($("#city").val());
         localStorage.setItem("city", userCity);
-        var artistName = "";
         for (let i = 0; i < artistArr.length; i++) {
             queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&city=" + userCity + "&sort=date,asc&startDateTime=" + searchTime + "&radius=30&apikey=aEo9tgraRerkwjEgT4qifF3P6rJBXxd7";
             $.ajax({
@@ -72,7 +82,8 @@ var searchFun = function () {
 
 /**
  * Sorts and renders concert information to the page
- * 
+ * @param {boolean} rendering - lets js know if page is rendering or not
+ * @param {array} allConcerts - array of objects containing concert information
  */
 var renderConcerts = function () {
     while (rendering) {
