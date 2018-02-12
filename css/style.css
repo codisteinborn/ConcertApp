@@ -158,18 +158,6 @@ body{
     transform: scale(1.05, 1.05);
     }
 
-.concertDiv::after {
-    content: '';
-    position: absolute;
-    z-index: -1;
-    width: 105%;
-    height: 105%;
-    opacity: .8;
-    border-radius: 5px;
-    box-shadow: 5px 12px 15px  rgb(24, 23, 23);
-    transition: all 0.3s ease-in-out;
-}
-
 .concertPic {
     background-position: center center;
     background-size: cover;
@@ -231,6 +219,7 @@ body{
     .concertDiv {
         width: 90%;
     }
+
 }
 
 @media all and (max-width: 750px) {
