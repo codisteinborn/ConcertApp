@@ -80,15 +80,15 @@ Ticketmaster Developer API - <https://developer.ticketmaster.com/>
 
 # Original Contributors:
 
+
 Joe Fitzpatrick - <https://github.com/joefitz12> \
 Codi Steinborn  - <https://github.com/codisteinborn/> \
 Susan Lippa - <https://github.com/slippa91>
 
 
-
 # Ideas for Improvement:
 
-Have an idea for improving this site, please first discuss the change you wish to make via email with the owners of this repository. Email addresses can be found on the contributor's gitHub pages (links above).
+Have an idea for improving this site? Please first discuss the change you wish to make via email with the owners of this repository. Email addresses can be found on the contributor's gitHub pages (links above).
 
 
 # SpotYourShow in Development:
@@ -107,6 +107,6 @@ As a user, I want to create a list of favorites so that I can prioritize which s
 
 As a user, I want to see which of my friends follow an artist that I also follow so that I can see if they want to come to the concert with me
 
-WireFrame:
+Original WireFrame:
 
-
+![Wire Frame](css/WireFrame.jpg)
