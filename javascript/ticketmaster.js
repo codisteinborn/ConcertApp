@@ -12,7 +12,7 @@ if (localStorage.getItem("city")) {
 } ``
 
 /**
- * Runs our ajax call to Ticketmaster and gives us back information about the concert(s) of the selected artist(s)
+ * Runs our ajax call to Ticketmaster API and gives us back information about the concert(s) of the selected artist(s). Also runs our renderConcerts function.
  * 
  * @returns {object} concert information
  */
@@ -29,43 +29,40 @@ var searchFun = function () {
                 url: queryURL,
                 type: "GET",
                 dataType: "json",
-                success: function (response) {
-                    if (response._embedded) {
-                        for (k in response._embedded.events) {
-                            concertInfo = {
-                                name: artistArr[i],
-                                date: response._embedded.events[k].dates.start.localDate,
-                                venue: response._embedded.events[k]._embedded.venues[0].name,
-                                venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
-                                url: response._embedded.events[k].url,
-                                image: response._embedded.events[k].images
-                            }
-                            allConcerts.push(concertInfo);
-                            console.log("allConcerts", allConcerts);
+            }).done(function (response) {
+                if (response._embedded) {
+                    for (k in response._embedded.events) {
+                        concertInfo = {
+                            name: artistArr[i],
+                            date: response._embedded.events[k].dates.start.localDate,
+                            venue: response._embedded.events[k]._embedded.venues[0].name,
+                            venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
+                            url: response._embedded.events[k].url,
+                            image: response._embedded.events[k].images
                         }
-                        renderConcerts();
+                        allConcerts.push(concertInfo);
                     }
-                    else {
-                        if (allConcerts.length === 0) {
-                            if ($(".concertError").length === 0 && $(".concertDiv").length === 0) {
-                                var errorDiv = $("<div>");
-                                errorDiv.addClass("concertError");
-                                errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
-                                $("#concertList").append(errorDiv);
-                            }
-                            else if ($(".concertError").length === 0 && $(".concertDiv").length > 0) {
-                                $("#concertList").empty();
-                                var errorDiv = $("<div>");
-                                errorDiv.addClass("concertError");
-                                errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
-                                $("#concertList").append(errorDiv);
-                            }
-                        }
-                    }
-                },
-                error: function (response) {
-                    return response;
+                    renderConcerts();
                 }
+                else {
+                    if (allConcerts.length === 0) {
+                        if ($(".concertError").length === 0 && $(".concertDiv").length === 0) {
+                            var errorDiv = $("<div>");
+                            errorDiv.addClass("concertError");
+                            errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
+                            $("#concertList").append(errorDiv);
+                        }
+                        else if ($(".concertError").length === 0 && $(".concertDiv").length > 0) {
+                            $("#concertList").empty();
+                            var errorDiv = $("<div>");
+                            errorDiv.addClass("concertError");
+                            errorDiv.text("Sorry, there are no upcoming shows for your selected artists.");
+                            $("#concertList").append(errorDiv);
+                        }
+                    }
+                }
+            }).fail(function (response) {
+                return response;
             });
         };
     } else {
@@ -74,7 +71,7 @@ var searchFun = function () {
 };
 
 /**
- * Renders our concert information to the page
+ * Sorts and renders concert information to the page
  * 
  */
 var renderConcerts = function () {
@@ -123,7 +120,6 @@ var renderConcerts = function () {
 
             var concertTextVenue = $("<p>");
             concertTextVenue.addClass("overlayConcertTextVenue");
-            console.log(userCity);
             if (userCity) {
                 newAnchor.append($(concertTextVenue).text(allConcerts[j].venue));
             } else {
@@ -142,7 +138,8 @@ var renderConcerts = function () {
 
 /**
  * Clicks trigger searchFun to run
- * 
+ * @param {event} click
+ * @param {fucntion} searchFun - call back function that runs our searchFun
  */
 $("#artistList").on("click", searchFun);
 $("#citybtn").on("click", searchFun);
