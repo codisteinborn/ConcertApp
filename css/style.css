@@ -70,6 +70,7 @@
  h1 {
       font-size: 700%;
       font-weight: bold;
+      font-family: 'Righteous', cursive;
       color: #1DD069;
     }
 
@@ -295,7 +296,7 @@ height: 750px;
 
 .artistText {
     padding: 25px 0px 0px 0px;
-    display: inline-block;
+    /* display: inline-block; */
     font-size: 14px;
     margin: 0;
     width: 75%;
