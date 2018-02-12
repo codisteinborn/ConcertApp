@@ -177,6 +177,7 @@ body{
     width: 100%;
     padding: 0;
     clip-path: polygon(100% 0, 100% 76%, 82% 100%, 115% 100%, 0 55%, 0 0);
+    -webkit-clip-path: polygon(100% 0, 100% 76%, 82% 100%, 115% 100%, 0 55%, 0 0);
 }
 
 .overlayConcertTextDate {
@@ -225,10 +226,17 @@ body{
     width: 85%;
 }
 
-
-@media all and (max-width: 856px) {
+@media all and (max-width: 950px) {
     .concertDiv {
-        width: 80%;
+        width: 90%;
+    }
+}
+
+
+
+@media all and (max-width: 750px) {
+    .concertDiv {
+        width: 95%;
     }
 }
 
