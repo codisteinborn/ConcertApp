@@ -23,18 +23,18 @@ if (localStorage.getItem("city")) {
 
 /**
  * Runs our ajax call to Ticketmaster API and gives us back information about the concert(s) of the selected artist(s). Also calls our renderConcerts function.
- * @param {array} artistArr - array of artist names selected from Spotify follow list
+ * @param {array} spotify - array of artist names selected from Spotify follow list
  * 
  * @returns {array} allConcerts - array of objects containing concert information
  */
 var searchFun = function () {
     event.preventDefault();
-    if (artistArr.length > 0) {
+    if (spotify.length > 0) {
         allConcerts = [];
         userCity = String($("#city").val());
         localStorage.setItem("city", userCity);
-        for (let i = 0; i < artistArr.length; i++) {
-            queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + artistArr[i] + "&city=" + userCity + "&sort=date,asc&startDateTime=" + searchTime + "&radius=30&apikey=aEo9tgraRerkwjEgT4qifF3P6rJBXxd7";
+        for (let i = 0; i < spotify.length; i++) {
+            queryURL = "https://app.ticketmaster.com/discovery/v2/events.json?keyword=" + spotify[i] + "&city=" + userCity + "&sort=date,asc&startDateTime=" + searchTime + "&radius=30&apikey=aEo9tgraRerkwjEgT4qifF3P6rJBXxd7";
             $.ajax({
                 url: queryURL,
                 type: "GET",
@@ -43,7 +43,7 @@ var searchFun = function () {
                 if (response._embedded) {
                     for (k in response._embedded.events) {
                         concertInfo = {
-                            name: artistArr[i],
+                            name: spotify[i],
                             date: response._embedded.events[k].dates.start.localDate,
                             venue: response._embedded.events[k]._embedded.venues[0].name,
                             venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
