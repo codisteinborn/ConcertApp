@@ -110,3 +110,15 @@ As a user, I want to see which of my friends follow an artist that I also follow
 Original WireFrame:
 
 ![Wire Frame](css/WireFrame.jpg)
+
+Future Development:
+
+For shows with multiple selected artists, render a single concert picture with "Multiple Artists" displayed in name space.
+
+Using local storage to keep a list of favorite concerts with a reminder triggered when tickets go on sale.
+
+Adding music snippets from the artist when they are selected.
+
+Incorporate a Google Map integration for venues when single a single city is selected.
+
+
