@@ -66,6 +66,12 @@ If you think of a new artist that you would like to follow, just type the name i
 
 ![Artist Added](css/ArtistAddedRM.png)
 
+You can clear out the rendered concerts by clicking on the individual artists that are hilighted in green OR by clicking on the trash can at the bottom of the "Artist you Follow" list.
+
+This will only clear out your concert search. I it will NOT remove artists from Spotify.
+
+![TrashCan](css/TrashCanRM.png)
+
 
 
 That is all there is too it!  Enjoy playing around with this site. Better yet, enjoy the show!!
