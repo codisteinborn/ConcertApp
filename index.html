@@ -11,7 +11,7 @@
         crossorigin="anonymous">
     <link href="https://fonts.googleapis.com/css?family=Encode+Sans+Expanded|Righteous" rel="stylesheet">
     <link rel="stylesheet" type="text/css" href="css/style.css" />
-    <link rel="stylesheet" media="all and (max-width)" href="css/style.css"/>
+    <link rel="stylesheet" media="all and (max-width)" href="css/style.css" />
 </head>
 
 <body>
@@ -25,14 +25,14 @@
         </div>
     </div>
 
-      <section class="company-heading intro-type" id="parallax-one">
+    <section class="company-heading intro-type" id="parallax-one">
         <div class="container">
             <div class="row product-title-info">
                 <div class="col-md-12">
                     <h1>
                         SPOTYOURSHOW
                     </h1>
-                    <a class="ct-btn-scroll ct-js-btn-scroll" href="#section2">
+                    <a class="ct-btn-scroll ct-js-btn-scroll" href="#section2" data-toggle="tooltip" data-placement="bottom" title="Click on artists from the list you follow below to see upcoming shows!">
                         <img id="scrollImg" alt="Arrow Down Icon" src="https://www.solodev.com/assets/anchor/arrow-down.png">
                     </a>
                 </div>
@@ -89,6 +89,7 @@
                                 </span>
                             </form>
                             <button id="clearButton">
+                                Click here to deselect all artists from search
                                 <span class="glyphicon glyphicon-trash" aria-hidden="true">
                             </button>
                         </div>
@@ -101,7 +102,7 @@
                                 <h3>Concerts</h3>
                                 <div class="col-md-4 col-md-offset-4 col-sm-6 col-xs-6">
                                     <form class="input-group">
-                                        <input type="text" class="form-control" id="city" placeholder="Search by City">
+                                        <input type="text" class="form-control" id="city" placeholder="Filter by City">
                                         <span class="input-group-btn">
                                             <button class="btn btn-default" id="citybtn" type="button">
                                                 <span class="glyphicon glyphicon-search" aria-hidden="true">

@@ -48,3 +48,9 @@ $(document).ready(function () {
         }
     });
 });
+/**
+ * This enables the tooltip over the arrow down button
+ */
+$(document).ready(function(){
+    $('[data-toggle="tooltip"]').tooltip(); 
+});
