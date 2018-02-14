@@ -39,7 +39,7 @@ var searchFun = function () {
                 url: queryURL,
                 type: "GET",
                 dataType: "json",
-            }).done(function (response) {
+            }).then(function (response) {
                 if (response._embedded) {
                     for (k in response._embedded.events) {
                         concertInfo = {
@@ -71,7 +71,7 @@ var searchFun = function () {
                         }
                     }
                 }
-            }).fail(function (response) {
+            }).catch(function (response) {
                 return response;
             });
         };
