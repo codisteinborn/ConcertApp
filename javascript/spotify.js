@@ -254,12 +254,12 @@ var spotify = function(){
         }
     });
 
-    $("#clearButton").on("click", function () {
-        spotify = [];
-        localStorage.removeItem("selectedArtistArray");
-        $(".selectedArtist").removeClass("selectedArtist");
-        $("#concertList").empty();
-    });
-
     return artistArr;
 }();
+
+$("#clearButton").on("click", function () {
+    spotify = [];
+    localStorage.removeItem("selectedArtistArray");
+    $(".selectedArtist").removeClass("selectedArtist");
+    $("#concertList").empty();
+});
