@@ -66,6 +66,12 @@ If you think of a new artist that you would like to follow, just type the name i
 
 ![Artist Added](css/ArtistAddedRM.png)
 
+You can clear out the rendered concerts by clicking on the individual artists that are hilighted in green OR by clicking on the trash can at the bottom of the "Artist you Follow" list.
+
+This will only clear out your concert search. I it will NOT remove artists from Spotify.
+
+![TrashCan](css/TrashCanRM.png)
+
 
 
 That is all there is too it!  Enjoy playing around with this site. Better yet, enjoy the show!!
@@ -110,3 +116,15 @@ As a user, I want to see which of my friends follow an artist that I also follow
 Original WireFrame:
 
 ![Wire Frame](css/WireFrame.jpg)
+
+Future Development:
+
+For shows with multiple selected artists, render a single concert picture with "Multiple Artists" displayed in name space.
+
+Using local storage to keep a list of favorite concerts with a reminder triggered when tickets go on sale.
+
+Adding music snippets from the artist when they are selected.
+
+Incorporate a Google Map integration for venues when single a single city is selected.
+
+
