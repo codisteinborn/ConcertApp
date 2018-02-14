@@ -289,6 +289,7 @@ height: 750px;
     font-size: 14px;
     margin: 0;
     width: 75%;
+    cursor: pointer;
 }
 
 #followButton, #citybtn, #clearButton{
@@ -296,6 +297,7 @@ height: 750px;
  color: whitesmoke;
  background-color: rgb(10, 16, 10);
 }
+
 .form-control{
     background-color: rgb(10, 16, 10);
     color: whitesmoke;
