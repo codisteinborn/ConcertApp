@@ -21,7 +21,7 @@ var spotify = function(){
                 var newDiv = $("<div>");
                 newDiv.addClass("artistDiv");
                 newDiv.attr("data-artist", followArray[i].name);
-                newDiv.html("<p class='artistText'>" + followArray[i].name + "</p>");
+                newDiv.html("<p class='btn artistBtn artistText'>" + followArray[i].name + "</p>");
 
                 var photoDiv = $("<div>");
                 photoDiv.addClass("photoDiv");
