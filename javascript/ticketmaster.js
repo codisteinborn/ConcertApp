@@ -39,14 +39,20 @@ var searchFun = function () {
                 url: queryURL,
                 type: "GET",
                 dataType: "json",
-            }).done(function (response) {
+            }).then(function (response) {
                 if (response._embedded) {
                     for (k in response._embedded.events) {
                         concertInfo = {
                             name: spotify[i],
                             date: response._embedded.events[k].dates.start.localDate,
-                            venue: response._embedded.events[k]._embedded.venues[0].name,
-                            venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
+                            venue:
+                                response._embedded.events[k]._embedded.venues[0] ?
+                                    response._embedded.events[k]._embedded.venues[0].name :
+                                    "TBA",
+                            venueCity:
+                                response._embedded.events[k]._embedded.venues[0].city ?
+                                    response._embedded.events[k]._embedded.venues[0].city.name :
+                                    "TBA",
                             url: response._embedded.events[k].url,
                             image: response._embedded.events[k].images
                         }
@@ -71,7 +77,7 @@ var searchFun = function () {
                         }
                     }
                 }
-            }).fail(function (response) {
+            }).catch(function (response) {
                 return response;
             });
         };
