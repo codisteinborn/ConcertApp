@@ -45,8 +45,14 @@ var searchFun = function () {
                         concertInfo = {
                             name: spotify[i],
                             date: response._embedded.events[k].dates.start.localDate,
-                            venue: response._embedded.events[k]._embedded.venues[0].name,
-                            venueCity: response._embedded.events[k]._embedded.venues[0].city.name,
+                            venue:
+                                response._embedded.events[k]._embedded.venues[0] ?
+                                    response._embedded.events[k]._embedded.venues[0].name :
+                                    "TBA",
+                            venueCity:
+                                response._embedded.events[k]._embedded.venues[0].city ?
+                                    response._embedded.events[k]._embedded.venues[0].city.name :
+                                    "TBA",
                             url: response._embedded.events[k].url,
                             image: response._embedded.events[k].images
                         }
