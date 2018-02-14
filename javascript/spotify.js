@@ -255,7 +255,7 @@ var spotify = function(){
     });
 
     $("#clearButton").on("click", function () {
-        artistArr = [];
+        spotify = [];
         localStorage.removeItem("selectedArtistArray");
         $(".selectedArtist").removeClass("selectedArtist");
         $("#concertList").empty();
