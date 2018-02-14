@@ -1,4 +1,4 @@
-# SpotYourShow
+# ShowSpotter
     
 <https://codisteinborn.github.io/ConcertApp/> \
 Version 1.0 \
@@ -9,13 +9,13 @@ Original Deployment Date - February 16, 2018
 
 Joe was tired of finding out that his favorite bands had performed just a few miles away AFTER the roadies had already packed up and moved on. 
 
-He conceived of a single application where the artists followed on Spotify could be integrated with real-time concert information provided on the Ticketmaster website. From that idea, SpotYourShow was born.
+He conceived of a single application where the artists followed on Spotify could be integrated with real-time concert information provided on the Ticketmaster website. From that idea, ShowSpotter was born.
 
 # Getting Started:
 
-Software Installation - SpotYourShow does not reqire any software installation to operate.
+Software Installation - ShowSpotter does not reqire any software installation to operate.
     
-Prerequisites - An account with Spotify ( <https://www.spotify.com/us/> ). If you do not have a Spotify account, you will be given the opportunity to sign up for one during the SpotYourShow login process. 
+Prerequisites - An account with Spotify ( <https://www.spotify.com/us/> ). If you do not have a Spotify account, you will be given the opportunity to sign up for one during the ShowSpotter login process. 
 
 # Users Guide:
 
@@ -23,7 +23,7 @@ Application Link - <https://codisteinborn.github.io/ConcertApp/>
 
 Instructions - 
 
-Login:  Click the Login button to authorize SpotYourShow to access your Spotify account data.  If you do not have a Spotify account, you will be allowed to create one at this time.
+Login:  Click the Login button to authorize ShowSpotter to access your Spotify account data.  If you do not have a Spotify account, you will be allowed to create one at this time.
 
 ![Login Screen](css/PicofLoginScreenRM.png)
 
@@ -97,7 +97,7 @@ Susan Lippa - <https://github.com/slippa91>
 Have an idea for improving this site? Please first discuss the change you wish to make via email with the owners of this repository. Email addresses can be found on the contributor's gitHub pages (links above).
 
 
-# SpotYourShow in Development:
+# ShowSpotter in Development:
 
 UserStories:
 
