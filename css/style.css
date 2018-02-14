@@ -428,3 +428,7 @@ h2{
     font-size: 35px;
     font-weight: bold;
 }
+.tooltip{
+    font-size: 17px;
+    font-family: 'Encode Sans Expanded', sans-serif;
+}
