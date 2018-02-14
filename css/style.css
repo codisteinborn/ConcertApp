@@ -12,6 +12,10 @@
     height: 600px;
 }
 
+#italText {
+    color: #f8cf56;
+}
+
 #carouselImage1 {
     background: url("b&w.jpg");
     background-position: center center;
