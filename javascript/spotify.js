@@ -1,4 +1,4 @@
-var spotify = function(){
+var spotify = function () {
     var followArray = [];
     var artistArr = [];
     var tokenURL = "";
@@ -237,7 +237,7 @@ var spotify = function(){
 
 
     $("#followButton").on("click", function () {
-        if (String($("#followArtist").val()) !== ""){
+        if (String($("#followArtist").val()) !== "") {
             var artist = String($("#followArtist").val());
             localStorage.setItem("follow", artist);
             if (localStorage.getItem("selectedArtistArray")) {
@@ -253,13 +253,12 @@ var spotify = function(){
             window.location.replace("https://accounts.spotify.com/en/authorize?client_id=84dbfb40bf444d6bb409195e34dcd32d&response_type=token&scope=user-follow-modify&redirect_uri=https://codisteinborn.github.io/ConcertApp/");
         }
     });
+    $("#clearButton").on("click", function () {
+        artistArr = [];
+        localStorage.removeItem("selectedArtistArray");
+        $(".selectedArtist").removeClass("selectedArtist");
+        $("#concertList").empty();
+    });
 
     return artistArr;
 }();
-
-$("#clearButton").on("click", function () {
-    spotify = [];
-    localStorage.removeItem("selectedArtistArray");
-    $(".selectedArtist").removeClass("selectedArtist");
-    $("#concertList").empty();
-});
