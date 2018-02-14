@@ -5,7 +5,7 @@
  * @param {object} concertInfo - object to hold information about an upcoming concert
  * @param {array} allConcerts - array that holds objects with individual concert information in them
  * @param {string} time - fetches current time from movement.js
- * @param {string}searchTime - formats current time to work with ajax call
+ * @param {string} searchTime - formats current time to work with ajax call
  * @param {boolean} rendering - boolean to signify whether information is rendering or not
  */
 var userCity = "";
