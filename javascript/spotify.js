@@ -253,12 +253,14 @@ var spotify = function () {
             window.location.replace("https://accounts.spotify.com/en/authorize?client_id=84dbfb40bf444d6bb409195e34dcd32d&response_type=token&scope=user-follow-modify&redirect_uri=https://codisteinborn.github.io/ConcertApp/");
         }
     });
+
     $("#clearButton").on("click", function () {
-        artistArr = [];
+        artistArr.splice(0,artistArr.length);
         localStorage.removeItem("selectedArtistArray");
         $(".selectedArtist").removeClass("selectedArtist");
         $("#concertList").empty();
-    });
 
+    });
+    
     return artistArr;
 }();
