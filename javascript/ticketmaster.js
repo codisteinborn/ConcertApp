@@ -160,4 +160,3 @@ var renderConcerts = function () {
  */
 $("#artistList").on("click", searchFun);
 $("#citybtn").on("click", searchFun);
-$('#clearButton').on("click", searchFun)
