@@ -3,6 +3,10 @@ var spotify = function () {
     var artistArr = [];
     var tokenURL = "";
 
+/**
+ * Redirects user to Spotify authorization page
+ */
+
     $("#login").on("click", function () {
         window.location.replace("https://accounts.spotify.com/en/authorize?client_id=84dbfb40bf444d6bb409195e34dcd32d&response_type=token&scope=user-follow-read&redirect_uri=https://codisteinborn.github.io/ConcertApp/");
     });
@@ -13,6 +17,11 @@ var spotify = function () {
     var first = URLArray.indexOf("=") + 1;
     var last = URLArray.indexOf("&");
     var token = tokenURL.substring(first, last);
+
+/**
+ * Renders artists the user follows on Spotify to the page, adds onclick that: adds to and removes from div the selectedArtist class; adds artists to and removes artists from and from artistArr; adds artist to and removes artists from localStorage.
+ * @param {array} followArray - array of artist names and photos created from Spotify API call
+ */
 
     var artistRender = function () {
         $("#artistList").empty();
@@ -74,6 +83,13 @@ var spotify = function () {
         }
     };
 
+/**
+ * Checks for token and localStorage, makes ajax calls to Spotify for followed artist list and, if localStorage exists, follows a new artist. Adds artist names and photos to followArray, calls render function. 
+ * @param {object} JSON response to ajax calls - includes artist name and photo.
+ * 
+ * @returns {array} followArray - array of artist names and photos.
+ */
+
     if (last > 0) {
         if (!localStorage.getItem("follow")) {
             $.ajax({
@@ -115,12 +131,6 @@ var spotify = function () {
         }
         else {
 
-            // tokenURL = window.location.href;
-
-            // URLArray = tokenURL.split("");
-            // first = URLArray.indexOf("=") + 1;
-            // last = URLArray.indexOf("&");
-            // token = tokenURL.substring(first, last);
             var spotifyID = "";
             var artist = localStorage.getItem("follow");
             localStorage.removeItem("follow");
@@ -235,6 +245,10 @@ var spotify = function () {
         }
     }
 
+/**
+ * Saves artist to localStorage when user chooses to follow a new artist. Redirects user to Spotify to get new token.
+ * @param {string} value of user input in the "follow" search box
+ */
 
     $("#followButton").on("click", function () {
         if (String($("#followArtist").val()) !== "") {
@@ -253,6 +267,10 @@ var spotify = function () {
             window.location.replace("https://accounts.spotify.com/en/authorize?client_id=84dbfb40bf444d6bb409195e34dcd32d&response_type=token&scope=user-follow-modify&redirect_uri=https://codisteinborn.github.io/ConcertApp/");
         }
     });
+
+/**
+ * Clear button - clears selected artists from artistArr and localStorage
+ */
 
     $("#clearButton").on("click", function () {
         artistArr.splice(0,artistArr.length);
