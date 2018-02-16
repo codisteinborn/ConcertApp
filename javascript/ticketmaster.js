@@ -93,7 +93,7 @@ var searchFun = function () {
  */
 var renderConcerts = function () {
     while (rendering) {
-        console.log("function waiting for rendering to finish");
+
     }
     if (!rendering) {
         rendering = true;
