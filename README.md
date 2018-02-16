@@ -13,7 +13,7 @@ He conceived of a single application where the artists followed on Spotify could
 
 # Getting Started:
 
-Software Installation - ShowSpotter does not reqire any software installation to operate.
+Software Installation - ShowSpotter does not require any software installation to operate.
     
 Prerequisites - An account with Spotify ( <https://www.spotify.com/us/> ). If you do not have a Spotify account, you will be given the opportunity to sign up for one during the ShowSpotter login process. 
 
@@ -41,7 +41,7 @@ If you are a Spotify veteran, you likely have a list of Artists that you follow.
 
 Concert Information  - Worldwide or by City:
 
-If the artist you clicked on has a concert in the Ticketmaster system,a picture will appear in the right hand side of the screen sorted by date.
+If the artist you clicked on has a concert in the Ticketmaster system, a picture will appear in the right hand side of the screen sorted by date.
 
 
 ![Concert Pictures](/css/ConcertRenderRM.png)
@@ -54,7 +54,7 @@ If you want to see this information for your city, or a place you would like to 
 
 Get your Tickets!:
 
-Find a show that you would like to see, just click on one of the concert pictures and you will be directed to Ticktmaster where you buy tickets!!
+Find a show that you would like to see, just click on one of the concert pictures and you will be directed to Ticketmaster where you buy tickets!
 
 
 Add an Artist:
@@ -66,7 +66,7 @@ If you think of a new artist that you would like to follow, just type the name i
 
 ![Artist Added](css/ArtistAddedRM.png)
 
-You can clear out the rendered concerts by clicking on the individual artists that are hilighted in green OR by clicking on the trash can at the bottom of the "Artist you Follow" list.
+You can clear out the rendered concerts by clicking on the individual artists that are highlighted in green OR by clicking on the trash can at the bottom of the "Artist you Follow" list.
 
 This will only clear out your concert search. I it will NOT remove artists from Spotify.
 
@@ -74,7 +74,7 @@ This will only clear out your concert search. I it will NOT remove artists from 
 
 
 
-That is all there is too it!  Enjoy playing around with this site. Better yet, enjoy the show!!
+That is all there is too it!  Enjoy playing around with this site. Better yet, enjoy the show!
                 
 # Built Utilizing:
 
