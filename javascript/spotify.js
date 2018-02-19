@@ -3,7 +3,7 @@ var spotify = function () {
     var artistArr = [];
     var tokenURL = "";
 
-/**
+ /**
  * Redirects user to Spotify authorization page
  */
 
@@ -18,7 +18,7 @@ var spotify = function () {
     var last = URLArray.indexOf("&");
     var token = tokenURL.substring(first, last);
 
-/**
+ /**
  * Renders artists the user follows on Spotify to the page, adds onclick that: adds to and removes from div the selectedArtist class; adds artists to and removes artists from and from artistArr; adds artist to and removes artists from localStorage.
  * @param {array} followArray - array of artist names and photos created from Spotify API call
  */
@@ -83,7 +83,7 @@ var spotify = function () {
         }
     };
 
-/**
+ /**
  * Checks for token and localStorage, makes ajax calls to Spotify for followed artist list and, if localStorage exists, follows a new artist. Adds artist names and photos to followArray, calls render function. 
  * @param {object} JSON response to ajax calls - includes artist name and photo.
  * 
@@ -97,7 +97,7 @@ var spotify = function () {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }
-            }).done(function (response) {
+            }).then(function (response) {
 
                 var followList = function () {
                     followArray = [];
@@ -125,7 +125,7 @@ var spotify = function () {
 
                 artistRender();
 
-            }).fail(function (response) {
+            }).catch(function (response) {
                 console.log("couldn't get follow list (1) error response", response);
             });
         }
@@ -140,7 +140,7 @@ var spotify = function () {
                 headers: {
                     'Authorization': 'Bearer ' + token
                 }
-            }).done(function (response) {
+            }).then(function (response) {
                 if (response.artists.items[0]) {
                     spotifyID = response.artists.items[0].id;
 
@@ -150,14 +150,14 @@ var spotify = function () {
                         headers: {
                             'Authorization': 'Bearer ' + token
                         }
-                    }).done(function (response) {
+                    }).then(function (response) {
 
                         $.ajax({
                             url: 'https://api.spotify.com/v1/me/following?type=artist&limit=50',
                             headers: {
                                 'Authorization': 'Bearer ' + token
                             },
-                        }).done(function (response) {
+                        }).then(function (response) {
 
                             var followList = function () {
                                 followArray = [];
@@ -184,10 +184,10 @@ var spotify = function () {
 
                             artistRender();
 
-                        }).fail(function (response) {
+                        }).catch(function (response) {
                             console.log("got ID, followed artist, couldn't get follow list (2) error", response);
                         });
-                    }).fail(function (response) {
+                    }).catch(function (response) {
                         console.log("got ID, couldn't follow artist error", response);
                     });
                 }
@@ -198,7 +198,7 @@ var spotify = function () {
                         headers: {
                             'Authorization': 'Bearer ' + token
                         },
-                    }).done(function (response) {
+                    }).then(function (response) {
 
                         var followList = function () {
                             followArray = [];
@@ -237,7 +237,7 @@ var spotify = function () {
                         errorDiv.text("No results found for " + artist + ".");
                         $("#artistList").prepend(errorDiv);
 
-                    }).fail(function (response) {
+                    }).catch(function (response) {
                         console.log("got ID, followed artist, couldn't get follow list (2) error", response);
                     });
                 }
@@ -245,7 +245,7 @@ var spotify = function () {
         }
     }
 
-/**
+ /**
  * Saves artist to localStorage when user chooses to follow a new artist. Redirects user to Spotify to get new token.
  * @param {string} value of user input in the "follow" search box
  */
@@ -268,7 +268,7 @@ var spotify = function () {
         }
     });
 
-/**
+ /**
  * Clear button - clears selected artists from artistArr and localStorage
  */
 
